@@ -1,0 +1,1480 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>mikerowecode</title>
+  <meta http-equiv="Content-Type" content="text/xhtml+xml;charset=utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+  <!--<link rel="alternate" type="application/rss+xml" title="RSS" href="http://mikerowecode.com/index.rss" />-->
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="http://mikerowecode.com/index.atom" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+
+<div id="header">
+  <h1><a href="http://mikerowecode.com"><span id="title1">mike</span><span id="title2">rowe</span><span id="title3">code</span></a></h1>
+</div><!-- header -->
+
+<div id="main">
+<div id="content">
+<h2><a href="http://mikerowecode.com/2010/08/adventures-in-clojure.html">First adventures in Clojure</a></h2>
+<div class="byline">
+  <p>2010-08-02 - 21:22</p>
+</div>
+<div class="story">
+  <p>I&#8217;ve been banging on to anyone who&#8217;d listen for ages now about how
+<a href="http://clojure.org/">Clojure</a> is going the be the Next Big Thing. I read a fair way
+into Stuart Halloway&#8217;s <a href="http://pragprog.com/titles/shcloj/programming-clojure">Programming Clojure</a>, and I played in the
+REPL a bit here and there, but I never got around to doing anything
+serious with it.</p>
+
+<p>Today I finally found an excuse to use Clojure at work for a
+real-world problem. I needed to write a small program to read a
+product feed in CSV format, and cross-check that all the products in
+the feed actually exist in the live product catalogue database.</p>
+
+<p>Here is my somewhat naïve attempt at implementing a solution:</p>
+
+<pre><code>;;
+;; Read a CSV file and look up the product ids it contains in a
+;; database. Report all the products in the CSV that do not exist in
+;; the database.
+;;
+;; Usage: &#036;0 &lt;path-to-csv-file&gt;
+;;
+
+(import 'java.io.FileReader 'au.com.bytecode.opencsv.CSVReader)
+
+(use 'clojure.contrib.str-utils)
+(use 'clojure.contrib.sql)
+
+;; OpenCSV gives us a List of String[]s... ugh.
+(defn read-csv [file-name]
+  (with-open [reader (CSVReader. (FileReader. file-name))]
+     (rest ;; skip the header row
+      (map seq (seq (. reader readAll))))))
+
+;; extract interesting fields from a CSV row
+(defn product-from [row]
+  {:product-id (nth row  0 "")
+   :title      (nth row  1 "")})
+
+;; set up the db connection
+(def db {:classname   "org.h2.Driver"
+         :subprotocol "h2"
+         :subname (str "file:///Users/mrowe/.h2data/mydata")
+         :user     "sa"
+         :password ""})
+
+(defn sql-query [q]
+  (with-query-results res q (doall res)))
+
+(defn count-products [product-id]
+  (:count
+   (first
+    (sql-query ["select count(1) as count from product where id = ?" product-id]))))
+
+(defn exists? [product-id]
+   (&gt;= (count-products product-id) 1))
+
+(defn product-missing? [csv-row]
+  (let [product (product-from csv-row)]
+    (not (exists? (product :product-id)))))
+
+;;;;;;;;;;
+
+(def filename (first *command-line-args*))
+(def feed (read-csv filename))
+
+(defn report-product-id [row]
+  (let [product (product-from row)]
+    (format "Not in product catalog: %s - %s" (product :product-id) (product :title))))
+
+(with-connection db 
+  (println (str-join "\n" (map report-product-id (filter product-missing? feed)))))
+</code></pre>
+
+<p>This was purely an exercise in thinking functionally, and figuring out
+the basics of driving Clojure and getting it to interact with the
+world around it. I&#8217;ve made no attempt to actually use one of Clojure&#8217;s
+headline features, concurrency. (For what it&#8217;s worth, it happily
+processes an input of 2500 rows in a few seconds, most of which is
+spent in the database&#8212;I doubt there&#8217;s much to be gained from
+parallelising it.) But I think it reads pretty well, and is at least
+as concise and expressive as the equivalent Ruby would have been&#8212;once
+you learn to see through all the parentheses. ;-)</p>
+
+<p>Let me know what you think!</p>
+
+<p><em>Update</em>: I&#8217;ve put the above code on github: <a href="http://gist.github.com/505633">http://gist.github.com/505633</a></p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2009/10/fusion-shared-folders.html">Using VMWare Fusion shared folders with a Linux guest</a></h2>
+<div class="byline">
+  <p>2009-10-17 - 15:53</p>
+</div>
+<div class="story">
+  <p><a href="http://www.vmware.com/products/fusion/">VMWare Fusion</a> has a &#8220;shared folders&#8221; feature which allows you to
+seamlessly share folders on the host Mac system with the virtualised
+guest OS. With a Linux guest, <code>vmware-tools</code> will install the
+&#8220;Host-Guest File System&#8221; (<code>hgfs</code>) driver and add an entry to
+<code>/etc/fstab</code> to automagically mount all shared folders under
+<code>/mnt/hgfs</code>. </p>
+
+<p>This is great, but unless your user id in the Linux guest happens to
+match your user id OS X, you will not be able to access the mounted
+directories as a regular user. Luckily, you can get the hgfs driver to
+mount the shared folders as your user. Edit <code>/etc/fstab</code> as root:</p>
+
+<pre><code>&#036; sudo vi /etc/fstab
+</code></pre>
+
+<p>and look for a section like:</p>
+
+<pre><code># Beginning of the block added by the VMware software
+.host:/ /mnt/hgfs vmhgfs defaults,ttl=5 0 0
+# End of the block added by the VMware software
+</code></pre>
+
+<p>Add options for <code>uid</code> and <code>gid</code>:</p>
+
+<pre><code># Beginning of the block added by the VMware software
+.host:/ /mnt/hgfs vmhgfs defaults,ttl=5,uid=1000,gid=1000 0 0
+# End of the block added by the VMware software
+</code></pre>
+
+<p>The values I&#8217;ve used, 1000 for uid and gid, are the defaults for the
+first user created on an Ubuntu desktop install. To find the correct
+values for your user, run the <code>id</code> command in the guest OS:</p>
+
+<pre><code>&#036; id
+uid=1000(mrowe) gid=1000(mrowe) groups=...
+</code></pre>
+
+</div>
+<h2><a href="http://mikerowecode.com/2009/09/filter-in-modern-languages.html">Filtering lists </a></h2>
+<div class="byline">
+  <p>2009-09-24 - 08:44</p>
+</div>
+<div class="story">
+  <p>Recently, my friend Gav wrote about <a href="http://antonym.org/2009/09/stl-filtering.html">using STL to filter a vector of
+values in C++</a> in which he explained a surprising gotcha. I&#8217;m sure
+he knows what he&#8217;s talking about, but it struck me how <em>ugly</em> this
+(presumably idomatic) code was. So I figured I&#8217;d see what it would
+look like in a few more &#8220;modern&#8221; languages:</p>
+
+<h3>Ruby</h3>
+
+<pre><code>&gt;&gt; numbers = 1..9
+=&gt; 1..9
+&gt;&gt; numbers.reject { |n| n.even? }
+=&gt; [1, 3, 5, 7, 9]
+</code></pre>
+
+<p>Or, if you skip the separate assignment of the input data:</p>
+
+<pre><code>&gt;&gt; (1..9).reject { |n| n.even? }
+=&gt; [1, 3, 5, 7, 9]
+</code></pre>
+
+<h3>Python</h3>
+
+<pre><code>&gt;&gt;&gt; numbers = range(1,10)
+&gt;&gt;&gt; [n for n in numbers if n % 2]
+[1, 3, 5, 7, 9]
+</code></pre>
+
+<p>or</p>
+
+<pre><code>&gt;&gt;&gt; [n for n in range(1, 10) if n % 2]
+[1, 3, 5, 7, 9]
+</code></pre>
+
+<h3><a href="http://clojure.org/">Clojure</a></h3>
+
+<pre><code>user=&gt; (def numbers (range 1 10))
+#'user/numbers
+user=&gt; (filter odd? numbers)
+(1 3 5 7 9)
+</code></pre>
+
+<p>or</p>
+
+<pre><code>user=&gt; (filter odd? (range 1 10))
+(1 3 5 7 9)
+</code></pre>
+
+<p>Yeah, I get that this wasn&#8217;t the point of the original post&#8212;sometimes
+you&#8217;re just stuck with C++. But if you do have the choice, other
+languages can be far more expressive for this common kind of list
+processing.</p>
+
+<p>If you have examples in other languages (or improvements to my
+efforts) <a href="mailto:mowe@mojain.com">send them in</a> and I&#8217;ll post them here.</p>
+
+<p><em>Update</em>: From <a href="http://www.rawblock.com">Julian Doherty</a>:</p>
+
+<h3>Erlang</h3>
+
+<pre><code>1&gt; Numbers = lists:seq(1,9).
+[1,2,3,4,5,6,7,8,9]
+2&gt; [X || X &lt;- Numbers, X rem 2 =/= 0].
+[1,3,5,7,9]
+</code></pre>
+
+<p><em>Update</em>: From <a href="http://houtschuurtje.blogspot.com/">Ben MacLeod</a>:</p>
+
+<h3>C&#35;</h3>
+
+<pre><code>using System;
+using System.Linq;
+
+// ...
+
+    var numbers = Enumerable.Range(1, 10).Where(n =&gt; n % 2 != 0);
+    // or, equivalently:
+    //var numbers = (from n in Enumerable.Range(1, 10) where n % 2 != 0 select n);
+    foreach(var number in numbers) {
+        Console.WriteLine(number);
+    }
+
+// ...
+</code></pre>
+
+<p><em>Update</em>: From John Carney:</p>
+
+<h3>PHP</h3>
+
+<h4>5.2</h4>
+
+<pre><code>function not_even(&#036;x) {
+    return &#036;x &amp; 1 ;
+}
+
+&#036;numbers = array(1, 2, 3, 4, 5, 6, 7, 8, 9) ;
+&#036;numbers = array_filter(&#036;numbers, "not_even") ;
+</code></pre>
+
+<h4>5.3</h4>
+
+<pre><code>&#036;numbers = array(1, 2, 3, 4, 5, 6, 7, 8, 9) ;
+&#036;numbers = array_filter(&#036;numbers, function(&#036;x) { return &#036;x &amp; 1 ; }) ;
+</code></pre>
+
+</div>
+<h2><a href="http://mikerowecode.com/2009/06/git-bash-completion.html">Enabling git bash completion on OS X</a></h2>
+<div class="byline">
+  <p>2009-06-01 - 11:21</p>
+</div>
+<div class="story">
+  <p>Bash completion, the magic that allows you to start typing the name of
+a file, directory, etc. in bash then press TAB to complete it, can be
+taught new tricks, including knowing about your git repository. But if
+you&#8217;re on a Mac, the magic is not installed by defaut.</p>
+
+<p>If you are running git from <a href="http://www.macports.org/">MacPorts</a>, you probably don&#8217;t have the
+bash_completion variant installed. You can install it with:</p>
+
+<pre><code>sudo port install git-core +bash_completion
+</code></pre>
+
+<p>If you <em>do</em> already have git installed without this variant, you&#8217;ll
+probably need to deactivate it first:</p>
+
+<pre><code>sudo port deactivate git-core
+</code></pre>
+
+<p>Then reinstall with the variants you need:</p>
+
+<pre><code>sudo port install git-core +bash_completion +gitweb +svn +doc
+</code></pre>
+
+<p>You can then activate completion by adding the following to your
+<code>~/.bash_profile</code>:</p>
+
+<pre><code>if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
+</code></pre>
+
+<p>Thanks to <a href="http://denis.tumblr.com/post/71390665/adding-bash-completion-for-git-on-mac-os-x-leopard">Denis Barushev</a> for this tip.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2009/05/jaoo-2009.html">A potted history of JAOO 2009</a></h2>
+<div class="byline">
+  <p>2009-05-27 - 22:37</p>
+</div>
+<div class="story">
+  <p>A couple of weeks ago I attend the <a href="http://jaoo.com.au/brisbane-2009/">JAOO 2009</a> conference in
+Brisbane. What follows is a biased, incomplete and probably misleading
+account of my impression of the two days.</p>
+
+<h4>Keynote</h4>
+
+<p>I always assumed conference keynotes were meant to be broad, sweeping
+and inspiring. This one was narrow, technical and delivered in a
+mind-numbing monotone. Maybe it&#8217;s just the way they do things now?</p>
+
+<h4>Introduction to Objective-C</h4>
+
+<p>This was clearly targeted at people who have no exposure to
+Objective-C, but rather than just being a dry survey of the language
+syntax and libraries, <a href="http://www.vanderburg.org/Blog">Glenn Vanderburg</a> provided a nice historical
+overview of the Objective-C and its heritage.</p>
+
+<p>My take away: Objective-C is basically SmallTalk, and SmallTalk is
+basically Lisp.</p>
+
+<h4>Google App Engine: Building an App the Google Way</h4>
+
+<p>Pamela got rave reviews in Sydney, and she&#8217;s certainly an entertaining
+speaker. If you&#8217;d never heard of GAE, or never looked at its
+capabilities, this would have been a very good introduction. I&#8217;ve
+built a couple of small GAE apps though (in Python), and other than
+seeing the Java version of some of the APIs, this talk really told me
+nothing new.</p>
+
+<h4>1,001 Iterations: Product Design, Illustrated</h4>
+
+<p>This was a recounting of the process <a href="http://avibryant.com/">Avi Bryant</a> went through
+taking a new idea from its inception through many refinements to a
+polished product.</p>
+
+<p>Perhaps most the interesting part for me was Avi&#8217;s assessment of the
+relative strengths of the various languages he ended up using to
+implement the product:</p>
+
+<ul>
+<li><p><a href="http://www.squeak.org/">Squeak</a> - for &#8220;thinking&#8221; in (i.e. the interesting problems and
+            their solutions)</p></li>
+<li><p>Java - for nuts-and-bolts computing (crunching numbers)</p></li>
+<li><p>Ruby - for interfacing with external libraries and APIs (e.g. twitter)</p></li>
+<li><p>JavaScript - for interacting with the user</p></li>
+</ul>
+
+<p>I&#8217;m not sure it&#8217;s always a good idea to mix so many technologies in
+the one product, but it certainly makes some sense to not get hung up
+on the One True Language, and just use each where they&#8217;re best suited.</p>
+
+<h4>Speeding Ducks</h4>
+
+<p>Avi again. Much more technical this time. Avi&#8217;s main point: Ruby
+really is slow, but there&#8217;s no reason it has to be.</p>
+
+<p>He began with an interesting history of Java&#8217;s Hotspot VM, which was
+based on technology developed for SmallTalk and Self in the 1980s. But
+Google&#8217;s <a href="http://code.google.com/p/v8/">V8</a> was built by three people in about 3 months&#8212;surely we
+can do the same for ruby!</p>
+
+<p>At the end of the talk, Avi was challenged by Joshua Bloch. Josh
+disputed Avi&#8217;s claim that because V8 was built in three months, <em>all</em>
+optimising &#8220;hotspot&#8221; VMs should be easy to build. Java&#8217;s current VM
+has been constantly improved over many years, and solves many
+non-trivial problems.</p>
+
+<p>Of course, this sort of interaction between notable figures in our
+industry is exactly why you go to conferences like JAOO.</p>
+
+<h4>Hey You! Get On To My Cloud! - Application Development in the Clouds</h4>
+
+<p>Dave Thomas gave us some thought provoking ideas about current
+languages development platforms. Is JavaScript the way of the future?
+I&#8217;m not so sure, but I think one of Dave&#8217;s main points is worth paying
+attention to: functional programming is the way forward if we want to
+improve the speed with which we can build software.</p>
+
+<h4>Atlassian</h4>
+
+<p><a href="http://blogs.atlassian.com/rebelutionary">Mike Cannon-Brookes</a> gave us a bit of background of Atlassian&#8217;s
+history (they&#8217;ve gone from two people and one product to nearly 100
+engineers and ten products in eight years), then listed what he
+thought were the ten key practices that have made them successful.
+I&#8217;ll excerpt just the ones I think are worth talking about, and add my
+thoughts (not necessarily agreeing with Mike):</p>
+
+<ul>
+<li><p>Agile - it&#8217;s the <em>principles</em> that are important, not any
+particular methodology or set of tools</p></li>
+<li><p>Code review - there&#8217;s plenty of hard evidence that code
+review/inspection is one of the best ways to reduce the number of
+defects in software. Of course, pairing is the ultimate form of
+code review.</p></li>
+<li><p>Optimise tests - the main goal: get feedback to developers as fast
+as possible. Some of the things Atlassian do to achieve this
+include selectively running only tests that could possibly be
+affected by a code change (by doing static analysis on coverage),
+and splitting functional tests into parallel builds.</p>
+
+<p>This is a common problem&#8212;functional test suites that take so long
+to test an application that the pipeline from code check-in to the
+&#8220;you broke the build!&#8221; feedback can be hours. Atlassian&#8217;s solution
+is to split the tests into chunks that run in a maximum of ten
+minutes, and have enough build agents to run all the chunks in
+parallel.</p></li>
+<li><p>Put everything in a wiki. Yeah, they would say that, wouldn&#8217;t they?
+:-)</p></li>
+<li><p>&#8220;Dev speed posse&#8221; - Atlassian have a small team that spend a fixed
+amount of time every week just focusing on removing things that
+slow down development. This is a great idea (although not one
+that&#8217;s unique to Atlassian), and something more organisations
+should consider. One of the more interesting goals they have is
+that the &#8220;checkout loop&#8221; (the time it takes a developer to go from
+a clean machine to having a checked out app running locally and
+ready to work on) should be no more than ten minutes. How many
+large development shops can achieve that?</p></li>
+</ul>
+
+<h4>Josh Bloch - Effective Java</h4>
+
+<p>This was basically a summary of some of the new things in the second
+edition of <a href="http://www.amazon.com/gp/product/0321356683?ie=UTF8&amp;tag=mikerowecode-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321356683">Effective Java</a>. About a third of the talk was all about
+generics. Good grief. Surely someone has noticed by now that this has
+all gone horribly wrong.</p>
+
+<p>&#8220;Concurrency is hard&#8221; - even if you use the right APIs (for example,
+always use <code>ConcurrentHashMap</code> not <code>Collections.synchronized*()</code>) it&#8217;s
+still easy to get it wrong. Read Brian Goetz&#8217;s <a href="http://www.amazon.com/gp/product/0321349601?ie=UTF8&amp;tag=mikerowecode-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0321349601">Java Concurrency in Practice</a>. </p>
+
+<p>And finally: <code>Serializable</code> is bad, since it allows objects to be
+created without using constructors. This can lead to invariants and
+other assumptions being violated. Josh says to use serialization
+proxies instead.</p>
+
+<h4>Doug Crockford on JavaScript</h4>
+
+<p>One of the classic Doug Crockford JavaScript talks. Probably nothing
+new if you&#8217;d listened to his talks from Yahoo&#8217;s <a href="http://developer.yahoo.com/yui/theater/">YUI Theater</a>, but
+still well worth spending 45 minutes listening to in person.</p>
+
+<p>Some of Doug&#8217;s comments, observations and tips:</p>
+
+<ul>
+<li><p>JavaScript has widest range of user programming skills of any
+language, from computers scientist to cut-and-pasters</p></li>
+<li><p>JavaScript has many influences, including: Self (prototypes,
+dynamic typing), Scheme (lambda, loose typing), Java (syntax), Perl
+(regexps)</p></li>
+<li><p>it is commonly being used as a functional language&#8212;you&#8217;ll write
+better JavaScript if you think functionally</p></li>
+<li><p><code>eval</code> is the most misused feature - just don&#8217;t do it!</p></li>
+<li><p>always use <code>===</code>. You&#8217;ll be tempted to use <code>==</code> instead, but it&#8217;s
+broken&#8212;it causes type coercion, which leads to unexpected and
+buggy results</p></li>
+<li><p>manage the divide between client and server (don&#8217;t recreate the
+server in the browser)</p></li>
+</ul>
+
+<h4>Software Visualization and Model Generation</h4>
+
+<p><a href="http://erik.doernenburg.com/">Eric Doernenburg</a> is a consultant at ThoughtWorks, and I&#8217;d heard him talk before
+about some of the cool code visualisation tools he&#8217;s put together. The
+basic idea is that by visualising certain attributes of a code base,
+it&#8217;s much easier to focus on the trouble spots without getting lost in
+the detail of thousands of lines of code.</p>
+
+<p>Interestingly, Eric uses both common tools (e.g. CheckStyle) and the
+more exotic (<a href="http://www.inf.unisi.ch/faculty/lanza/codecrawler.html">CodeCrawler</a>, <a href="http://www.inf.unisi.ch/phd/wettel/codecity.html">CodeCity</a>). Those last two are more
+or less self-contained, but Eric does really cool things with
+CheckStyle and <a href="http://www.graphviz.org/">Graphviz</a>, and a bit of XSL to glue them together.
+As a general approach, use whatever analysis tool is closest to what
+you need, then map the output into a format your visualisation tool
+can read.</p>
+
+<h4>Smart Software with F#</h4>
+
+<p>An overview of, and small sample app, in F#, Microsoft&#8217;s functional
+language for the CLR. The main message:</p>
+
+<ul>
+<li><p>F# is great for data-intensive applications</p></li>
+<li><p>smart algorithms are (relatively) easy in F#</p></li>
+</ul>
+
+<p>Both of which apply to any functional language of course.</p>
+
+<p>You try to give Microsoft people the benefit of the doubt&#8230; but <a href="http://callvirt.net/blog/">Joel Pobar</a>, 
+despite obviously being very knowledgeable about F# and
+functional programming, still managed a couple of clangers. Most
+egregious: he called python an &#8220;elementary imperative language&#8221;. Fair
+enough if your background is Visual Basic and you&#8217;d never heard of
+functional programming&#8230; but this guy is the F# expert.</p>
+
+<p>Anyway, it was good to see a bit of F# in action. If it gets more
+people thinking about functional programming, great. But it doesn&#8217;t
+offer anything you can&#8217;t get in Clojure, SmallTalk, Scheme, etc.,
+unless you&#8217;re stuck in the Microsoft ecosystem.</p>
+
+<hr />
+
+<p>Overall, a great couple of days. I learnt new things and expanded my
+mind about things I already knew. I hope to go again next year, and
+hopefully it will come to Melbourne!</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2009/05/emacs-full-screen.html">Emacs full-screen shortcut</a></h2>
+<div class="byline">
+  <p>2009-05-14 - 08:01</p>
+</div>
+<div class="story">
+  <p>When you&#8217;re writing or coding, you want to remove as many distractions
+as possible. In addition to obvious things like shutting down you
+email, IM and twitter clients, it can be helpful to put your editor in
+full-screen mode. This way, the editor is the only thing visible, so
+your attention isn&#8217;t drawn to menu bars, flashing notifications or
+bouncing dock icons.</p>
+
+<p>To create a shortcut for fullscreen mode in emacs, put this in your
+<code>~/.emacs</code> file:</p>
+
+<pre><code>(defun toggle-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
+                                           nil
+                                           'fullboth)))
+(global-set-key [(meta return)] 'toggle-fullscreen)
+</code></pre>
+
+<p>Now pressing <code>M-return</code> (usually <code>alt + return</code> on Windows/Linux or <code>⌘
++ return</code> on a Mac) will toggle Emacs between normal and full screen
+mode.</p>
+
+<p>Thanks to Vebjorn Ljosa in <a href="http://groups.google.com/group/carbon-emacs/browse_thread/thread/1945355952b13c5d">this thread</a> for this code snippet.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2009/05/new-job-cogent.html">A new start</a></h2>
+<div class="byline">
+  <p>2009-05-14 - 08:01</p>
+</div>
+<div class="story">
+  <p>I have a new job, and contrary to what I&#8217;ve <a href="/2007/10/job_search.html">said previously</a>, it&#8217;s
+at a consulting company. With a differnce.</p>
+
+<p><strong><a href="http://cogentconsulting.com.au/">Cogent</a></strong> <em>is</em> a consulting company, but with ambitions to be a
+product company. In fact, I&#8217;ve spent my first few weeks here working
+on our first publicly available product, <a href="http://www.runwayapp.com/">Runway</a>. (Runway is a
+task management app that supports the principals of Getting Things
+Done&reg;.)</p>
+
+<p>I&#8217;m really excited to be here. Cogent has an explicit goal of treating
+its employees <em>and</em> its customers humanely. It&#8217;s very open and free of
+bureaucratic nonsense. And it&#8217;s full of really smart people&#8212;although
+the average probably just went down bit&#8230; :-)</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/03/git_with_subversion.html">Using git on subversion projects</a></h2>
+<div class="byline">
+  <p>2008-06-01 - 21:12</p>
+</div>
+<div class="story">
+  <p>Despite all the noise lately about distributed version control
+systems, the chances are any given project you want to work on today
+will be using Subversion. But that&#8217;s OK, you can still get the benefit
+of all the advanced features of <a href="http://git.or.cz/">git</a> by using it as a &#8220;front end&#8221; to
+subversion. </p>
+
+<p>Before I get into the &#8220;how&#8221;, why would you want to do this?</p>
+
+<p>The most obvious benefits are having a full local history, and cheap
+local branching. It&#8217;s trivial in git to create branches for features
+you&#8217;re working on, and then easily switch between them. Say you&#8217;re
+working on a feature for the next release, and an urgent bug for 1.0
+comes in. Simply:</p>
+
+<pre><code>&#036; git commit -m "work in progress"
+&#036; git checkout --track -b fix-urgent-bug-1234 release-1.0
+
+...hack hack...
+
+&#036; git commit -m "fixed bug #1234"
+&#036; git checkout cool-feature-foo
+</code></pre>
+
+<p>and continue where you left off.</p>
+
+<p>There&#8217;s also a bunch of other neat stuff in git that I miss whenever I
+have to use something else (keep in mind that I&#8217;m no svn guru, so
+there may be similar things in svn if you look hard enough. But I very
+much doubt they&#8217;re as fast). <code>git grep</code> for rapidly searching source
+trees. <code>gitk</code> for visualising branches and interactively searching for
+commit messages and changes. Local commits. Oh, and everything is
+<em>much</em> faster.</p>
+
+<p>OK, on to the <strong>how</strong>.</p>
+
+<p>We start by checking out the svn repo:</p>
+
+<pre><code>&#036; git svn clone -s http://svn.example.com/svn/cool-project
+</code></pre>
+
+<p>The <code>-s</code> switch means &#8220;standard layout&#8221;, i.e. the recommended
+subversion usage of trunk/branches/tags. If your project doesn&#8217;t
+follow this convention, you can specify the names of the
+subdirectories used:</p>
+
+<pre><code>&#036; git svn clone --trunk=MAIN --branches=branches --tags=releases \
+    http://svn.example.com/svn/cool-project
+</code></pre>
+
+<p>There are lots of other options to clone that can help if you have a
+really non-standard repo to work with. Check the <code>init</code> command in
+<a href="http://www.kernel.org/pub/software/scm/git/docs/git-svn.html">man git-svn(1)</a>.</p>
+
+<p>You should now have the HEAD of trunk in a directory called
+&#8220;cool-protect&#8221;. (You can specify a different target directory name by
+appending it to the <code>git svn clone</code> command.)</p>
+
+<p>The full power of git is now at your command! You can grep the source
+tree:</p>
+
+<pre><code>&#036; git grep '^class Model('
+django/db/models/base.py:class Model(object):
+tests/modeltests/invalid_models/models.py:class Model(models.Model):
+</code></pre>
+
+<p>Find the git commit corresponding to a subversion revision:</p>
+
+<pre><code>&#036; git svn find-rev r1234
+c5dfec042453672a27fd19ff81131edd01145584
+
+&#036; git show c5dfec0
+commit c5dfec042453672a27fd19ff81131edd01145584
+Author: Michael Rowe &lt;mrowe@mojain.com&gt;
+Date:   Sat Feb 16 10:14:57 2008 +1100
+...
+</code></pre>
+
+<p>And interrogate the full history of the repo:</p>
+
+<pre><code>&#036; cd ~/src/django
+&#036; git log '@{3 weeks ago}' -1
+commit 696a3322d6709ebffcc436eb6188ea4d769ebfc5
+Author: mtredinnick &lt;mtredinnick@bcc190cf-cafb-0310-a4f2-bffc1f526a37&gt;
+Date:   Mon Feb 4 04:57:56 2008 +0000
+
+    Fixed a simple TODO item in one error path of the "extends" tag.
+</code></pre>
+
+<p>In the time we&#8217;ve been playing with this, maybe some changes have been
+committed upstream. To make sure our local repository is up to date, we
+rebase:</p>
+
+<pre><code>&#036; git svn rebase
+</code></pre>
+
+<p>You could also just use <code>git svn fetch</code> to fetch the upstream changes
+into the repo without rebasing your working tree. In general, I would
+avoid this unless you know what you are doing, since it can make
+things complicated when you go to merge and push your changes
+upstream. If you are working on the main trunk of the svn repo,
+<code>rebase</code> is almost always what you want.</p>
+
+<p>So now we have an up to date checkout, lets get to work! As you work,
+add files to git&#8217;s &#8220;index&#8221; and commit to the repo. Commits in git are
+fast, and should be used almost as frequently as saving a file in your
+editor. You can always consolidate these &#8220;micro-commits&#8221; into larger
+feature or bug fix commits later.</p>
+
+<pre><code>...hack hack...
+
+&#036; git add src/module.py src/other.py
+&#036; git commit -m "I did stuff"
+</code></pre>
+
+<p>and repeat.</p>
+
+<p><em>Note for subversion users</em>: you have to tell git about every file you
+change, even if it&#8217;s not a new file. Details of git usage are beyond
+the scope of this article (there are some <a href="http://git.or.cz/gitwiki/QuickStart">excellent starting points</a>),
+but be aware that you have to <code>git add</code> each file you
+want included in a commit.</p>
+
+<p>(<em>Note for lazy git users</em>: This can be combined into a single
+command for existing files:</p>
+
+<pre><code>&#036; git commit -m "I did stuff" src/module.py src/other.py
+</code></pre>
+
+<p>but I tend to prefer the two-step approach for anything but the most
+trivial changes.)</p>
+
+<p>As you work, you can periodically sync with the upstream subversion
+repo to get other people&#8217;s changes:</p>
+
+<pre><code>&#036; git svn rebase
+</code></pre>
+
+<p>This won&#8217;t work if you have any local uncommitted changes. However,
+you can &#8220;stash&#8221; them away temporarily (in git 1.5.3 and later):</p>
+
+<pre><code>&#036; git stash
+&#036; git svn rebase
+&#036; git stash apply
+</code></pre>
+
+<p>In any case, as mentioned above, you want to commit locally as often
+as possible.</p>
+
+<p>When you have finished work on a feature or bug fix that you want to
+push back to the subversion repository, make sure all your changes are
+committed locally to git (<code>git status</code>), then review what you&#8217;ve done:</p>
+
+<pre><code>&#036; git log origin/trunk (by default, or whatever svn branch you're on)
+&#036; git diff origin/trunk
+</code></pre>
+
+<p>Finally, when you are happy with the work you&#8217;ve done and are ready to
+push it up to subversion:</p>
+
+<pre><code>&#036; git svn dcommit
+</code></pre>
+
+<p>This will create individual svn check ins for each git commit since the
+last upstream revision. If you want to combine local commits into one
+large svn check in (e.g. because you followed my advice above and made
+frequent local commits), the interactive rebase command will help:</p>
+
+<pre><code>&#036; git rebase --interactive origin/trunk
+</code></pre>
+
+<p>Interactive rebase opens an editor with a list of all the commits
+since the revision you specify (<code>remotes/trunk</code> in our example).</p>
+
+<pre><code>pick d79a908 A small change to a file
+pick c5dfec0 An unrelated change
+pick db0346b Fix typo in hello
+</code></pre>
+
+<p>To combine the typo fix into the first commit, move its line directly
+below the line for the first commit and change &#8220;pick&#8221; to &#8220;squash&#8221;:</p>
+
+<pre><code>pick d79a908 A small change to a file
+squash db0346b Fix typo in hello
+pick c5dfec0 An unrelated change
+</code></pre>
+
+<p>The result will be two commits (<code>d79a908</code> and <code>c5dfec0</code>), with
+<code>d79a908</code> incorporating the changes from <code>db0346b</code>. You can do this
+for multiple consecutive lines if you want to combine many commits
+into one. See <a href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html">man git-rebase(1)</a> for full details.</p>
+
+<p>Now use <code>git svn dcommit</code> as above to push the revised commits
+upstream.</p>
+
+<p>We&#8217;ve been working on a single branch so far, but one of the big
+benefits of using git is the cheap branching. Lets start work on a new
+experimental feature:</p>
+
+<pre><code>&#036; git checkout -b my-wacky-feature
+</code></pre>
+
+<p>The <code>-b</code> switch means create a new branch. Without that, <code>git
+checkout</code> switches to an existing branch. </p>
+
+<pre><code>...hack hack...
+
+&#036; git add ...
+&#036; git commit ...
+</code></pre>
+
+<p>At any time, we can commit locally and switch to another branch:</p>
+
+<pre><code>&#036; git checkout other-thing-to-work-on
+
+...hack hack...
+
+&#036; git add ...
+&#036; git commit ...
+</code></pre>
+
+<p>then switch back and continue where we were:</p>
+
+<pre><code>&#036; git checkout my-wacky-feature
+</code></pre>
+
+<p>All of the commands we&#8217;ve discussed operate on the current branch
+(unless you specify otherwise). So you can grep for strings, get
+change logs and diffs and view visual history all in the context of
+the branch. You can also diff the current branch with another. To get
+a diff from <code>release-1.0</code> to the current working tree (on branch
+<code>fix-urgent-bug-1234</code>):</p>
+
+<pre><code>&#036; git checkout fix-urgent-bug-1234
+&#036; git diff release-1.0
+</code></pre>
+
+<p>Or to get diffs between arbitrary branches and revisions (without
+having to checkout either branch):</p>
+
+<pre><code>&#036; git diff release-1.0..my-wacky-feature
+</code></pre>
+
+<p>See <a href="http://www.kernel.org/pub/software/scm/git/docs/git-diff.html">man git-diff(1)</a> for all the options to diff.</p>
+
+<p><code>git svn dcommit</code> will only push changes on the current branch up to
+the subversion repository, so you can clean up and consolidate your
+commits using rebase, then push them back to subversion when they&#8217;re
+ready.</p>
+
+<hr />
+
+<p>I hope this quick introduction has whet your appetite for combining
+the power of git with the ubiquity of subversion. There is much more
+to git (we haven&#8217;t touched on merging at all), and once you&#8217;ve dipped
+your feet in, I recommend reading the intros and man pages at the <a href="http://git.or.cz/gitwiki/GitDocumentation">git site</a>.</p>
+
+<p>Please <a href="mailto:mikerowe@mikerowecode.com">let me know</a> if you have any suggestions or notice any
+errors.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/06/spaces_becomes_usable.html">Spaces becomes usable in OS X 10.5.3</a></h2>
+<div class="byline">
+  <p>2008-06-01 - 20:55</p>
+</div>
+<div class="story">
+  <p><a href="http://www.apple.com/macosx/features/spaces.html">Spaces</a> was one of the most anticipated features in Leopard, at
+least for Unix/X11 refugees like myself. X has had virtual desktops
+for decades, but users of &#8220;mainstream&#8221; desktop operating systems (i.e.
+Windows and Mac OS X) have had to rely on third-party utilities to get
+the same functionality.</p>
+
+<p>In the case of OS X, Leopard was set to change that with Spaces.
+Unfortunately, the <a href="http://blogs.sun.com/bblfish/entry/why_apple_spaces_is_broken">implementation was broken</a> in such a way as to
+make it incredibly frustrating to use the way I&#8217;m used to using X11. I
+typically have Terminal and Safari (and often <a href="http://aquamacs.org/">Emacs</a>) windows open
+on multiple desktops. But on a desktop dedicated to a particular task,
+I want to be able to ⌘-⇥ (command-tab) between application windows on
+that desktop. Prior to 10.5.3, this would invariably do precisely the
+opposite of what I wanted, and flip to <em>another</em> desktop that had a
+window of that application open. This resulted in Spaces being about
+5% as useful as X11 for serious keyboard-oriented work.</p>
+
+<p><em>(For what it&#8217;s worth, this whole thing is mostly an issue because of
+the distinction OS X makes between apps and windows of apps&#8212;in X11,
+alt-tab usually cycles between all windows equally, regardless of what
+application they belong to. On OS X however, command-tab cycles
+between applications&#8212;⌘-` can be used to cycle between
+windows of an application.)</em></p>
+
+<p>But good news! The recent 10.5.3 update to Mac OS X fixes it! Contrary
+to what <a href="http://daringfireball.net/2008/05/spaces">Gruber says</a>:</p>
+
+<blockquote>
+  <p>[Y]ou shouldn’t notice any changes, because the default behavior
+remains the same in 10.5.3</p>
+</blockquote>
+
+<p>the default behaviour <em>has</em> changed: command-tabbing between
+applications now stays on the same desktop if the target application
+has a window there, and jumps to another desktop otherwise.</p>
+
+<p>This is just about perfect. I actually like the jump-to-desktop
+behaviour for applications that aren&#8217;t on multiple desktops (e.g.
+iTunes), but now the default is to stay on-desktop for apps that are.
+(I still think I&#8217;d be slighly more comfortable if OS X behaved the
+same way as X11, and treated all windows as equal&#8212;but that could be
+Just What I&#8217;m Used To.)</p>
+
+<p>Thanks Apple!</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/02/aperture2.html">Aperture 2</a></h2>
+<div class="byline">
+  <p>2008-02-13 - 20:52</p>
+</div>
+<div class="story">
+  <p>I&#8217;m a little disappointed that Apple are charging AUD129 for the
+upgrade to <a href="http://www.apple.com/aperture/">Aperture 2</a>. Sure, there are a bunch of new, and very
+attractive, features that would otherwise make paying for the upgrade
+acceptable, but it seems a bit rich given that the full retail price
+has dropped from USD300 to USD200. Effectively, people who bought 1.x
+are getting hit twice.</p>
+
+<p>But I guess it doesn&#8217;t bother me enough to stop me buying the
+upgrade&#8230;</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/01/php_namespace.html">PHP namespace</a></h2>
+<div class="byline">
+  <p>2008-01-23 - 07:42</p>
+</div>
+<div class="story">
+  <p>This comment from the <a href="http://drupal.org/node/509">Drupal Theme developer&#8217;s guide</a> is an
+example of why whatever your question, PHP is not the answer:</p>
+
+<blockquote>
+  <p>An important note- when developing a theme using any of the methods
+  described here, you must be sure that the name of the theme is not
+  the same as the name of any module being used on the site because
+  the function names may collide and your site may no longer function
+  correctly.</p>
+</blockquote>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/01/new_home_for_blog.html">New home for a blog</a></h2>
+<div class="byline">
+  <p>2008-01-21 - 11:05</p>
+</div>
+<div class="story">
+  <p>My blog has moved to a dedicated new home:
+<a href="http://www.mikerowecode.com/">http://www.mikerowecode.com/</a></p>
+
+<p>All appropriate redirects are in place, but please check your feed
+reader to be sure. I&#8217;ve done a far-reaching survey of a wide range of
+users and clients&#8212;ok, well, actually myself and one friend, both
+using <a href="http://www.newsgator.com/Individuals/NetNewsWire/">NetNewsWire</a>&#8212;and it seems that it works fine when the feed
+is accessed directly, but if you have it syncing via NewsGator it
+doesn&#8217;t correctly propagate the new feed URL. It <em>does</em> follow the
+redirect to get the feed content, but doesn&#8217;t to push the changed URL
+back to the client. I&#8217;d be interested to
+<a href="mailto:mikerowe@mikerowecode.com">hear</a> about experiences with other
+readers.</p>
+
+<h3>A word about what&#8217;s behind curtain</h3>
+
+<p>The new site is built from text files using the <a href="http://www.blosxom.com/">blosxom</a>
+publishing system. The text files are formated using John Gruber&#8217;s
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a>, with punctuation fixed by his <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a>.</p>
+
+<p>I use a number of plugins for blosxom to get things working the way I
+want. These include <code>archives</code> and <code>recententries</code> to provide the
+navigation options in the sidebar, <code>entries_index</code> to maintain article
+time stamps and <code>atomfeed</code> to produce, er, an <a href="http://mikerowecode.com/index.atom">atom feed</a>. :) </p>
+
+<p>Blosxom runs in &#8220;static&#8221; mode to generate the site locally, and then I
+<code>rsync</code> it to my web server, where it&#8217;s served as static HTML.</p>
+
+<h4>Why blosxom?</h4>
+
+<p>It probably seems like a strange choice, when there are so many
+&#8220;advanced&#8221; alternatives such as <a href="http://drupal.org/">Drupal</a> (which was my previous
+system), WordPress, MovableType, Blogger, etc., etc. But a couple of
+things convinced me that blosxom was the way to go.</p>
+
+<p>First, my needs are minimal. I just want to publish the stuff I write with
+the minimum of fuss and overhead. I wanted a publishing system that
+would get out of the way.</p>
+
+<p>Second, there is something very appealing about keeping things in
+plain text. I can write in <a href="http://www.gnu.org/software/emacs/">emacs</a> (which is of course the One True
+Editor), manage changes with <a href="http://git.or.cz/">git</a>, search with grep (or
+spotlight). The directory layout is the same on my hard disk as on the
+public server. There&#8217;s no database to worry about backing up.</p>
+
+<p>Finally, since I&#8217;m serving static HTML, in the (admittedly
+far-fetched) event that this site becomes wildly popular and sees huge
+amounts of traffic, scaling will be trivial. :)</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/01/reviewboard_with_djblets.html">Reviewboard git mirror</a></h2>
+<div class="byline">
+  <p>2008-01-17 - 16:04</p>
+</div>
+<div class="story">
+  <p>For some months now, I&#8217;ve been maintaining a <a href="http://git.mojain.com/w/mirrors/reviewboard.git">git mirror</a> of the <a href="http://code.google.com/p/reviewboard/">Reviewboard</a> project&#8217;s <a href="http://reviewboard.googlecode.com/svn/">svn repository</a>. The <a href="http://www.kernel.org/pub/software/scm/git/docs/git-svn.html">git-svn</a> tool works really well for this, except for one small wrinkle: the reviewboard projects uses svn:external to include an external module, djblets, and git-svn provides no transparent way to support this.</p>
+
+<p>For now, I manage this manually. When ever I notice an update to djblets (which are thankfully rather rare), I use the following process to merge the changes into a branch (<a href="http://git.mojain.com/w/mirrors/reviewboard.git?a=shortlog;h=with-djblets">with-djblets</a>) in the git repo:</p>
+
+<pre><code>&#036; cd ~/src/djblets
+&#036; git svn rebase
+&#036; git log -1 | grep -v '^commit' &gt; /tmp/djblets.log
+</code></pre>
+
+<p>Note: change &#8220;1&#8221; to whatever number of commits have happened in djblets since the last time I did this. The grep command removes the git-specific &#8220;commit&#8221; lines from the log, which won&#8217;t be interesting enough to include in the commit message below.</p>
+
+<pre><code>&#036; cd ~/src/reviewboard-with-djblets
+&#036; git status # make sure working dir is clean
+&#036; cp -rp ~/src/djblets/* reviewboards/djblets/
+</code></pre>
+
+<p>At this point, I do a <code>git status</code> and manual sanity check to make sure the changes I&#8217;m about to commit here match the incoming change to djblets.</p>
+
+<pre><code>&#036; git add &lt;files that are changed/new&gt;
+&#036; git commit -F /tmp/djblets.log
+&#036; git push public-repo with-djblets
+</code></pre>
+
+<p>Done! Simple, no? Well, no&#8230; This process has a number of problems, the main one of which is it&#8217;s manual, and <em>I</em> have to do it. I&#8217;m hoping that I&#8217;ll be able to bend <a href="http://www.kernel.org/pub/software/scm/git/docs/git-submodule.html">git-submodule</a> to my will enough to take care of this.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2008/01/job_search.html">Job search update</a></h2>
+<div class="byline">
+  <p>2008-01-16 - 23:10</p>
+</div>
+<div class="story">
+  <p>It&#8217;s been a while coming, but here is a quick update on my job search:</p>
+
+<p>Whether it was my <a href="/2007/10/job_search.html">letter to recruiters</a>, or just dumb luck, I ended up finding and accepting a pretty good contract job back in November. A product company, smart people, great relaxed environment. More or less everything on my list. Even a kick-ass coffee machine in the office. As expected, it was a smaller &#8220;boutique&#8221; recruiter that came through.</p>
+
+<p>I&#8217;ve had a happy and productive couple of months.</p>
+
+<p>Then this week, the company was bought by Microsoft and my contract terminated
+early. *sigh* More job search news to come, I guess.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2007/11/iinet_usage_widget_patch.html">Multiple instances of the iiNet Usage Widget</a></h2>
+<div class="byline">
+  <p>2007-11-08 - 22:36</p>
+</div>
+<div class="story">
+  <p>There is a very handy <a href="http://lemonjar.com/?p=products.widgets.iinet">usage widget</a> for iiNet available at
+<a href="http://lemonjar.com">LemonJar</a>. However, the way it stores its preferences for iiNet
+account and password means that you can&#8217;t run multiple instances of
+the widget to monitor multiple iiNet accounts.</p>
+
+<p>This patch fixes it so you can:</p>
+
+<pre><code>--- MAIN.js.ORIG    2007-11-08 11:35:07.000000000 +1100
++++ MAIN.js 2007-11-08 11:33:59.000000000 +1100
+@@ -144,14 +144,18 @@
+
+ }
+
++function keyForUsername() { return widget.identifier + "-" + "userName"; }
++function keyForPassword() { return widget.identifier + "-" + "psword"; }
++function keyForAlertCol() { return widget.identifier + "-" + "alertColorOn"; }
++
+ //Read in Username &amp; Password Stored in OS .plist. Updates Global Variables.
+ function readPrefs(){
+    debug("Function: readPrefs() run.");
+
+    if(window.widget) { 
+-       var TMPuserName = widget.preferenceForKey("userName"); 
+-       var TMPpsword = widget.preferenceForKey("psword"); 
+-       var TMPalertColorOn = widget.preferenceForKey("alertColorOn"); 
++        var TMPuserName = widget.preferenceForKey(keyForUsername()); 
++       var TMPpsword = widget.preferenceForKey(keyForPassword()); 
++       var TMPalertColorOn = widget.preferenceForKey(keyForAlertCol()); 
+
+        if ( TMPuserName &amp;&amp; TMPuserName.length &gt; 0) { 
+            userName = TMPuserName;
+@@ -199,10 +203,10 @@
+    alertColorOn = document.getElementById("alertColorPref").checked;
+
+    if(window.widget){  
+-       widget.setPreferenceForKey(document.getElementById("userNamePref").value, "userName");
+-       widget.setPreferenceForKey(rot13(document.getElementById("pswordPref").value), "psword");
+-       widget.setPreferenceForKey(document.getElementById("alertColorPref").checked, "alertColorOn");
+-   }   
++      widget.setPreferenceForKey(document.getElementById("userNamePref").value, keyForUsername());
++      widget.setPreferenceForKey(rot13(document.getElementById("pswordPref").value), keyForPassword());
++      widget.setPreferenceForKey(document.getElementById("alertColorPref").checked, keyForAlertCol());
++   }
+ }
+</code></pre>
+
+<p>LemonJar also make widgets for other Australian ISPs. I suspect this
+patch would also work for those widgets (on the assumption that the
+code in MAIN.js is common), but I haven&#8217;t tested it.</p>
+
+<p>For what it&#8217;s worth, I filed a <a href="http://bugs.lemonjar.com/1.1.0rc2/view.php?id=2">bug</a> in their issue tracker.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2007/10/pyblosxom_entrycache_patch_keys.html">Another patch for pyblosxom entrycache - normalised keys</a></h2>
+<div class="byline">
+  <p>2007-10-30 - 14:33</p>
+</div>
+<div class="story">
+  <p>The entrycache plugin uses the absolute path of a file as the key for
+caching its date. This is problematic if the file is moved (e.g. your
+data dir is different locally to on your web server).</p>
+
+<p>This patch normalises the key to remove the &#8220;datadir&#8221; component. It
+also cleans up how the cache is written to disk:</p>
+
+<pre><code>diff --git a/entrycache.py b/entrycache.py
+index 0cc3196..b46f89d 100644
+--- a/entrycache.py
++++ b/entrycache.py
+@@ -52,19 +52,18 @@ def cb_filestat(args):
+    request = args["request"]
+    data = request.getData()
+    cache = data["cache"]
+-   if cache.has_key(args['filename']):
++   config = request.getConfiguration()
++   key = args['filename'].replace(config['datadir'], '')
++   if cache.has_key(key):
+        mtime = []
+        for i in args['mtime']:
+            mtime.append(i)
+-       mtime[8] = cache[args['filename']]
++       mtime[8] = cache[key]
+        args['mtime'] = tuple(mtime)
+    else:
+-       cache[args['filename']] = args['mtime'][8]
++       cache[key] = args['mtime'][8]
+        f = open(data['cachefile'],'w')
+-       f.write("{\n")
+-       f.write("\t'%s' : %i,\n" % (args['filename'], \
+    args['mtime'][8]))
+-       for i in cache:
+-           f.write("\t'%s' : %i,\n" % (i, cache[i]))
+-       f.write("}")
++       import pprint
++       pprint.pprint(cache, f)
+        f.close()
+    return args
+</code></pre>
+
+<p>I&#8217;ll get around to publishing my git repo of this soon.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2007/10/pyblosxom_entrycache_patch.html">Patch for pyblosxom entrycache plugin to make cache location configurable</a></h2>
+<div class="byline">
+  <p>2007-10-30 - 11:19</p>
+</div>
+<div class="story">
+  <p>The <a href="http://joe.terrarum.net/projects.html">entrycache</a> plugin for <a href="http://pyblosxom.sourceforge.net/">pyblosxom</a> is really cool. I only
+wish I could configure the location of the file it uses to store its
+cached dates.</p>
+
+<p>So here&#8217;s patch:</p>
+
+<pre><code>--- a/entrycache.py
++++ b/entrycache.py
+@@ -21,24 +21,31 @@ __url__ = "http://joe.terrarum.net"
+
+ import os.path
+
++def _get_cache_filename(args):
++   request = args["request"]
++   config = request.getConfiguration()
++        if config.has_key('entrycache_cachefile'):
++                return config['entrycache_cachefile']
++        else:
++                return os.path.join(config['datadir'],'.entrycache')
++
+ def cb_start(args):
+    t = { }
+    request = args["request"]
+-   config = request.getConfiguration()
+    data = request.getData()
+-   if os.path.isfile(os.path.join(config['datadir'],'.entrycache')):
+-       data['cachefile'] = os.path.join(config['datadir'],'.entrycache')
+-       f = file(os.path.join(config['datadir'],'.entrycache'))
++   if os.path.isfile(_get_cache_filename(args)):
++       data['cachefile'] = _get_cache_filename(args)
++       f = file(_get_cache_filename(args))
+        t = eval(f.read())
+        f.close()
+         data['cache'] = t
+    request.addData(data)
+
+    if not data.has_key('cachefile'):
+-       f = file(os.path.join(config['datadir'],'.entrycache'),'w')
++       f = file(_get_cache_filename(args),'w')
+        f.write("{ }")
+        f.close()
+-       data['cachefile'] = os.path.join(config['datadir'],'.entrycache')
++       data['cachefile'] = _get_cache_filename(args)
+        request.addData(data)
+
+ def cb_filestat(args):
+</code></pre>
+
+<p>Then add a line like this to your pyblosxom config:</p>
+
+<pre><code>py["entrycache_cachefile"] = \
+    "/Users/mrowe/Sites/blog/data/.entrycache"
+</code></pre>
+
+</div>
+<h2><a href="http://mikerowecode.com/2007/10/leopard_git_ssh.html">Leopard breaking MacPorts git over ssh</a></h2>
+<div class="byline">
+  <p>2007-10-30 - 09:43</p>
+</div>
+<div class="story">
+  <p>As I have been <a href="http://twitter.com/mrowe">twitting</a> recently, git over ssh stopped working
+for me after the upgrade to Leopard:</p>
+
+<pre><code>&#036; git pull
+percent_expand: NULL replacement
+fatal: The remote end hung up unexpectedly
+Cannot get the repository state from ssh://git.mojain.com/...
+</code></pre>
+
+<p>A quick <a href="http://www.google.com/search?q=leopard+percent_expand%3A+NULL+replacement">google search</a> quickly turned up the answer. The problem
+was not with git, but with ssh. Spefically, ssh from <a href="http://www.macports.org/">MacPorts</a>.
+It&#8217;s worth noting that ssh in OS X 10.5 is <em>not</em> broken (which made my
+intial trouble-shooting harder, as ssh-ing from the command line
+worked just fine). But git in MacPorts is:</p>
+
+<pre><code>&#036; which ssh
+/usr/bin/ssh
+&#036; ssh git.mojain.com
+Last login: Mon Oct 29 20:17:47 2007 from ...
+&#036; ^D
+
+&#036; /opt/local/bin/ssh git.mojain.com
+percent_expand: NULL replacement
+</code></pre>
+
+<p>You can follow the google results above for the details, but
+essentially it seems that two things cause the git problem:</p>
+
+<ol>
+<li><p>Leopard changed some environment variables that caused the MacPorts
+version of git to get a NULL when it tried to determine what
+&#8220;identity&#8221; to use.</p></li>
+<li><p>git looks for ssh in the same directory as the git binary, causing
+it to find the MacPorts version before the &#8220;native&#8221; OS X version.</p></li>
+</ol>
+
+<p>There are a number of ways to work around this problem (all found in
+the aforemetioned google results):</p>
+
+<ol>
+<li><p>Set <code>GIT_SSH</code> to the OS X version (<code>/usr/bin/ssh</code>). This works for
+git only of course.</p></li>
+<li><p>Rename your ssh key files so MacPorts ssh can find them (I didn&#8217;t
+try this).</p></li>
+<li><p>Tell ssh which key file to use by adding the following line to
+<code>&#036;HOME/.ssh/config</code> (creating that file if it doesn&#8217;t exist):</p>
+
+<p><code>IdentityFile ~/.ssh/id_dsa</code></p></li>
+</ol>
+
+<p>This last option is the one I chose, as it has the advantage of
+working for all versions and invocations of ssh, and is probably a
+good idea anyway. Presumably the MacPorts ssh package will be fixed at
+some point, but this is working for me now.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2007/10/leopard_web_server_php.html">Making PHP work after Leopard upgrade</a></h2>
+<div class="byline">
+  <p>2007-10-29 - 20:32</p>
+</div>
+<div class="story">
+  <p>Sure enough, PHP didn&#8217;t work after upgrading my mac to Leopard. Easy
+to fix though:</p>
+
+<pre><code>&#036; diff -u /private/etc/apache2/httpd.conf.ORIG /private/etc/apache2/httpd.conf
+--- /private/etc/apache2/httpd.conf.ORIG    2007-10-29 20:25:54.000000000 +1100
++++ /private/etc/apache2/httpd.conf 2007-10-29 20:26:08.000000000 +1100
+@@ -111,7 +111,7 @@
+ LoadModule alias_module libexec/apache2/mod_alias.so
+ LoadModule rewrite_module libexec/apache2/mod_rewrite.so
+ LoadModule bonjour_module     libexec/apache2/mod_bonjour.so
+-#LoadModule php5_module        libexec/apache2/libphp5.so
++LoadModule php5_module        libexec/apache2/libphp5.so
+ #LoadModule fastcgi_module     libexec/apache2/mod_fastcgi.so
+</code></pre>
+
+<p>and then </p>
+
+<pre><code>apachectl graceful
+</code></pre>
+
+<p>Perhaps surprisingly, MySQL (installed from the <a href="http://dev.mysql.com/downloads/mysql/5.0.html#macosx-dmg">&#8220;official&#8221;
+package</a>) continued to work without a hitch.</p>
+
+</div>
+<h2><a href="http://mikerowecode.com/2007/10/leopard_web_server.html">Making &#8220;personal web sharing&#8221; work after Leopard upgrade</a></h2>
+<div class="byline">
+  <p>2007-10-28 - 22:12</p>
+</div>
+<div class="story">
+  <p>My upgrade to Leopard has gone mostly well (if you don&#8217;t mind waiting
+half a day for spotlight to index everything, then another half a day
+for time machine to do its first back up). But tonight I tried to
+access my &#8220;personal website&#8221; via the local Apache server, and got a
+&#8220;Forbidden&#8221; message.</p>
+
+<p>It turns out Leopard includes Apache 2.2 (up from the 1.3 in Tiger)
+and its configuration now lives in</p>
+
+<pre><code>/private/etc/apache2
+</code></pre>
+
+<p>(not <code>/private/etc/httpd</code> as in Tiger and earlier). However, the
+upgrade did not bring across my user configuration file
+(<code>/private/etc/httpd/users/mrowe.conf</code>).</p>
+
+<p>The following commands fixed this for me:</p>
+
+<pre><code>cp /private/etc/httpd/users/mrowe.conf /private/etc/apache2/users/
+echo 'Include /private/etc/apache2/users/*.conf' &gt;&gt; /private/etc/apache2/httpd.conf
+apachectl graceful
+</code></pre>
+
+<p>(Obviously you would use your short username where I have &#8220;<code>mrowe</code>&#8221;.)</p>
+
+<p>I haven&#8217;t tried PHP yet&#8230;</p>
+
+<p><strong>Update</strong>: it turns out adding that <code>Include
+/private/etc/apache2/users/*.conf</code> line to <code>httpd.conf</code> is not
+necessary. It is taken care of by the line:</p>
+
+<pre><code>Include /private/etc/apache2/extra/httpd-userdir.conf
+</code></pre>
+
+<p>earlier in <code>httpd.conf</code> that I hadn&#8217;t noticed. You still need to copy
+your user.conf from <code>/private/etc/httpd/users</code> to
+<code>/private/etc/apache2/users</code>.</p>
+
+</div>
+</div><!-- content -->
+
+<div id="sidebar">
+
+  <h2>About</h2>
+
+  <div>
+    <p>
+      Hi! My name is Michael Rowe and this is my web site.
+    </p>
+  
+    <p>
+      Here I write about what ever is on my mind, which tends to be
+      related to running and programming computers, since that's <a
+      href="http://mikerowecode.com/michael/resume.html">what I do</a>.
+    </p>
+  
+    <p>
+      You can contact me <a href="mailto:mrowe@mojain.com">by
+      email</a>, or follow my <a href="http://twitter.com/mrowe">Twitter
+      feed</a> if you're so inclined.
+    </p>
+  </div>
+
+  <h2>Recent posts</h2>
+  <div id="recent">
+	<ul>
+	<li><a href="http://mikerowecode.com/2010/08/adventures-in-clojure.html">First adventures in Clojure
+</a></li><li><a href="http://mikerowecode.com/2009/10/fusion-shared-folders.html">Using VMWare Fusion shared folders with a Linux guest
+</a></li><li><a href="http://mikerowecode.com/2009/09/filter-in-modern-languages.html">Filtering lists 
+</a></li><li><a href="http://mikerowecode.com/2009/06/git-bash-completion.html">Enabling git bash completion on OS X
+</a></li><li><a href="http://mikerowecode.com/2009/05/jaoo-2009.html">A potted history of JAOO 2009
+</a></li><li><a href="http://mikerowecode.com/2009/05/emacs-full-screen.html">Emacs full-screen shortcut
+</a></li>
+	</ul>
+  </div>
+
+  <h2>Books</h2>
+  <div id="books">
+    <p>Books I'm reading or have recently read, and recommend to
+  anyone interested in programming and software.</p>
+
+    <ul>
+      <li><a href="http://www.amazon.com/gp/product/0596510047?ie=UTF8&tag=mikerowecode-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596510047">Beautiful Code</a></li>
+      <li><a href="http://www.amazon.com/gp/product/0201310090?ie=UTF8&tag=mikerowecode-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0201310090">Concurrent Programming in Java</a></li>
+      <li><a href="http://www.amazon.com/gp/product/0135974445?ie=UTF8&tag=mikerowecode-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0135974445">Agile Software Development</a></li>
+      <li><a href="http://www.amazon.com/gp/product/0735619670?ie=UTF8&tag=mikerowecode-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0735619670">Code Complete</a></li>
+    </ul>
+  </div>
+
+  <h2>Search</h2>
+    <div id="search">
+    <form method="get" action="http://google.com/search">
+      <input type="hidden" name="hl" value="en"/>
+      <input type="hidden" name="domains" value="mikerowecode.com"/>
+      <input type="hidden" name="sitesearch" value="mikerowecode.com"/>
+      <input title="Search" name="q"/>
+    </form>
+  </div>
+
+  <h2>Archives</h2>
+  <div id="archives">
+    <ul class="archives">
+	<li><a href="http://mikerowecode.com/2010/">2010</a> (1)
+		<ul>
+			<li><a href="http://mikerowecode.com/2010/08/index.html">August</a> (1)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2009/">2009</a> (6)
+		<ul>
+			<li><a href="http://mikerowecode.com/2009/10/index.html">October</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2009/09/index.html">September</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2009/06/index.html">June</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2009/05/index.html">May</a> (3)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2008/">2008</a> (7)
+		<ul>
+			<li><a href="http://mikerowecode.com/2008/06/index.html">June</a> (2)</li>
+			<li><a href="http://mikerowecode.com/2008/02/index.html">February</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2008/01/index.html">January</a> (4)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2007/">2007</a> (11)
+		<ul>
+			<li><a href="http://mikerowecode.com/2007/11/index.html">November</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2007/10/index.html">October</a> (9)</li>
+			<li><a href="http://mikerowecode.com/2007/09/index.html">September</a> (1)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2006/">2006</a> (22)
+		<ul>
+			<li><a href="http://mikerowecode.com/2006/12/index.html">December</a> (3)</li>
+			<li><a href="http://mikerowecode.com/2006/11/index.html">November</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2006/10/index.html">October</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2006/08/index.html">August</a> (6)</li>
+			<li><a href="http://mikerowecode.com/2006/07/index.html">July</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2006/06/index.html">June</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2006/05/index.html">May</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2006/03/index.html">March</a> (5)</li>
+			<li><a href="http://mikerowecode.com/2006/02/index.html">February</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2006/01/index.html">January</a> (2)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2005/">2005</a> (33)
+		<ul>
+			<li><a href="http://mikerowecode.com/2005/10/index.html">October</a> (4)</li>
+			<li><a href="http://mikerowecode.com/2005/08/index.html">August</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2005/07/index.html">July</a> (3)</li>
+			<li><a href="http://mikerowecode.com/2005/06/index.html">June</a> (5)</li>
+			<li><a href="http://mikerowecode.com/2005/05/index.html">May</a> (5)</li>
+			<li><a href="http://mikerowecode.com/2005/04/index.html">April</a> (10)</li>
+			<li><a href="http://mikerowecode.com/2005/03/index.html">March</a> (4)</li>
+			<li><a href="http://mikerowecode.com/2005/02/index.html">February</a> (1)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2004/">2004</a> (13)
+		<ul>
+			<li><a href="http://mikerowecode.com/2004/11/index.html">November</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2004/08/index.html">August</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2004/04/index.html">April</a> (3)</li>
+			<li><a href="http://mikerowecode.com/2004/01/index.html">January</a> (8)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/2003/">2003</a> (6)
+		<ul>
+			<li><a href="http://mikerowecode.com/2003/11/index.html">November</a> (1)</li>
+			<li><a href="http://mikerowecode.com/2003/04/index.html">April</a> (2)</li>
+			<li><a href="http://mikerowecode.com/2003/02/index.html">February</a> (3)</li>
+		</ul>
+	</li>
+	<li><a href="http://mikerowecode.com/1987/">1987</a> (1)
+		<ul>
+			<li><a href="http://mikerowecode.com/1987/04/index.html">April</a> (1)</li>
+		</ul>
+	</li>
+</ul>
+
+  </div>
+
+  <h2></h2>
+  <ul><li><a href="http://mikerowecode.com/index.atom">Atom feed</a></li></ul>
+  
+</div><!-- sidebar -->
+
+</div><!-- main -->
+
+<div id="footer">
+  <p>
+    Copyright &copy; 2003-2010 Michael Rowe. All rights reserved.
+  </p>
+  <p>
+    Hosted by <a href="http://mojain.net">mojain</a>. Feedback to
+    <a href="mailto:webmaster@mikerowecode.com">webmaster@mikerowecode.com</a>.
+  </p>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6154615-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

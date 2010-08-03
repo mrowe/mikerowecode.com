@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<h2><a href="">{{ page.title }}</a></h2>
+<div class="byline">
+  <p>{{ page.date | date:"%Y-%m-%d" }}</p>
+</div>
+<div class="story">
+  {{ content }}
+</div>
+
+<div>
+  <ul>
+    {% if page.next %}
+    <li>Later: <a href="{{ page.next.url }}">{{ page.next.title }}</a></li>
+    {% endif %}
+    {% if page.previous %}
+    <li>Earlier: <a href="{{ page.previous.url }}">{{ page.previous.title }}</a></li>
+    {% endif %}
+  </ul>
+</div>

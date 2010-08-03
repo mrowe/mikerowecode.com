@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>{{ page.title }}</title>
+
+  <meta http-equiv="Content-Type" content="text/xhtml+xml;charset=utf-8" />
+
+  <meta name="author" content="Michael Rowe" />
+  <meta name="description" content="Stuff I'm thinking about." />
+  <meta name="robots" content="all" />
+  <meta name="copyright" content="&copy; Michael Rowe 2003-2010" />
+
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ site.url }}/css/style.css" />
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ site.url }}/atom.xmlb" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+
+<div id="header">
+  <h1><a href="{{ site.url }}"><span id="title1">mike</span><span id="title2">rowe</span><span id="title3">code</span></a></h1>
+</div>
+
+<div id="main">
+  <div id="content">
+    {{ content }}
+  </div>
+  
+  <div id="sidebar">
+  
+    <h2>About</h2>
+  
+    <div>
+      <p>
+        Hi! My name is Michael Rowe and this is my web site.
+      </p>
+    
+      <p>
+        Here I write about what ever is on my mind, which tends to be
+        related to running and programming computers, since that's <a
+        href="{{ site.url }}/michael/resume.html">what I do</a>.
+      </p>
+    
+      <p>
+        You can contact me <a href="mailto:mrowe@mojain.com">by
+        email</a>, or follow my <a href="http://twitter.com/mrowe">Twitter
+        feed</a> if you're so inclined.
+      </p>
+    </div>
+  
+    <h2>Recent posts</h2>
+    <div id="recent">
+      <ul>
+        {% for post in site.posts | limit:6 %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  
+    <h2>Search</h2>
+    <div id="search">
+     <form method="get" action="http://google.com/search">
+        <input type="hidden" name="hl" value="en"/>
+        <input type="hidden" name="domains" value="mikerowecode.com"/>
+        <input type="hidden" name="sitesearch" value="mikerowecode.com"/>
+        <input title="Search" name="q"/>
+      </form>
+    </div>
+  
+    <!--
+    <h2>Archives</h2>
+    <div id="archives">
+      $archives::archives
+    </div>
+    -->
+    
+  </div><!-- sidebar -->
+
+</div><!-- main -->
+
+<div id="footer">
+  <p>
+    Copyright &copy; 2003-2010 Michael Rowe. All rights reserved.
+  </p>
+</div>
+
+<script type="text/javascript">{% include google_analytics.js %}</script>
+
+</body>
+</html>

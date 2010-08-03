@@ -19,6 +19,7 @@ the feed actually exist in the live product catalogue database.
 
 Here is my somewhat naïve attempt at implementing a solution:
 
+{% highlight clojure %}
     ;;
     ;; Read a CSV file and look up the product ids it contains in a
     ;; database. Report all the products in the CSV that do not exist in
@@ -76,6 +77,7 @@ Here is my somewhat naïve attempt at implementing a solution:
     
     (with-connection db 
       (println (str-join "\n" (map report-product-id (filter product-missing? feed)))))
+{% endhighlight %}
 
 This was purely an exercise in thinking functionally, and figuring out
 the basics of driving Clojure and getting it to interact with the

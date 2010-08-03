@@ -1,0 +1,5 @@
+safe: true
+lsi: true
+pygments: true
+permalink: /:year/:month/:title.html
+url: http://www.mikerowecode.com

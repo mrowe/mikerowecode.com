@@ -1,4 +1,7 @@
-First adventures in Clojure
+---
+layout: post
+title: First adventures in Clojure
+---
 
 I've been banging on to anyone who'd listen for ages now about how
 [Clojure][] is going the be the Next Big Thing. I read a fair way

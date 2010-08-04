@@ -60,7 +60,7 @@ a:hover  { text-decoration: underline; }
 #search input {
   background-color: white;
   color: inherit;
-  margin-top: 1em;
+  margin-top: 0em;
   border: 1px solid silver;
 }
 

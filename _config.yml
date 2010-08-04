@@ -1,4 +1,4 @@
-safe: true
+markdown: rdiscount
 lsi: true
 pygments: true
 permalink: /:year/:month/:title.html

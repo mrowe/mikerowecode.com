@@ -1,4 +1,7 @@
-My home network
+---
+layout: post
+title: My home network
+---
 
 At home, my main workstation is a 400Mhz AMD K6 running <a
 href="http://www.debian.org/">Debian</a> (currently woody, but I can

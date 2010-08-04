@@ -1,4 +1,7 @@
-Making PHP work after Leopard upgrade
+---
+layout: post
+title: Making PHP work after Leopard upgrade
+---
 
 Sure enough, PHP didn't work after upgrading my mac to Leopard. Easy
 to fix though:

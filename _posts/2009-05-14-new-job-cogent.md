@@ -1,4 +1,7 @@
-A new start
+---
+layout: post
+title: A new start
+---
 
 I have a new job, and contrary to what I've [said previously][], it's
 at a consulting company. With a differnce.

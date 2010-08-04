@@ -1,4 +1,7 @@
-A nice touch
+---
+layout: post
+title: A nice touch
+---
 
 When I tried to send an email on my new [iiNet][1] last night, I
 discovered that outgoing port 25 was blocked. This is quite common

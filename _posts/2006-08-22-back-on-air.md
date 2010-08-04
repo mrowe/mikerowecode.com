@@ -1,4 +1,7 @@
-Back on the air
+---
+layout: post
+title: Back on the air
+---
 
 After a frustrating weekend of ADSL outages a couple of weeks ago,
 thanks either to my ISP or, more likely, their upstream provider (the

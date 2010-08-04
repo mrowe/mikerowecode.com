@@ -1,4 +1,7 @@
-Not such a happy ending after all
+---
+layout: post
+title: Not such a happy ending after all
+---
 
 Well, some months have passed since my [happy ending][1]. Turns out it
 wasn't the end, and it wasn't so happy.

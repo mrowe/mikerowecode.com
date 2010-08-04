@@ -1,4 +1,7 @@
-Twitter and blogging
+---
+layout: post
+title: Twitter and blogging
+---
 
 I was never exactly a blogging over-achiever, but I can't help
 noticing that I've been even quieter here than usual, since

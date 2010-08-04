@@ -1,4 +1,7 @@
-A patch to the Drupal image module
+---
+layout: post
+title: A patch to the Drupal image module
+---
 
 I wrote a small patch to the [Drupal][1] [image module][2] that
 provides a block to list the top-level image taxonomy terms (the set

@@ -1,4 +1,7 @@
-Planets provide OPML
+---
+layout: post
+title: Planets provide OPML
+---
 
 This is probably not news to anyone else, but the ever-increasing
 world of blog "planets" ([Planet Linux

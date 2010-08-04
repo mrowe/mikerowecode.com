@@ -1,4 +1,7 @@
-Patch for pyblosxom entrycache plugin to make cache location configurable
+---
+layout: post
+title: Patch for pyblosxom entrycache plugin to make cache location configurable
+---
 
 The [entrycache][1] plugin for [pyblosxom][2] is really cool. I only
 wish I could configure the location of the file it uses to store its

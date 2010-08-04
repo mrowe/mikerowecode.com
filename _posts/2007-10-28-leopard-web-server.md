@@ -1,4 +1,7 @@
-Making "personal web sharing" work after Leopard upgrade
+---
+layout: post
+title: Making "personal web sharing" work after Leopard upgrade
+---
 
 My upgrade to Leopard has gone mostly well (if you don't mind waiting
 half a day for spotlight to index everything, then another half a day

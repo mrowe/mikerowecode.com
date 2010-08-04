@@ -1,4 +1,7 @@
-A Patch to make blosxom's entries_index plugin work with symlinks
+---
+layout: post
+title: A Patch to make blosxom's entries_index plugin work with symlinks
+---
 
 I've been spending some time reorganising my blog and general revision
 management. Part of this has been to bring it all into a Subversion

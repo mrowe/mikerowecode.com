@@ -1,4 +1,7 @@
-Setting iTunes metadata for downloaded TV shows
+---
+layout: post
+title: Setting iTunes metadata for downloaded TV shows
+---
 
 Below is a small piece of thoroughly untested AppleScript (well, it
 worked for me at least once) that will process files you might have

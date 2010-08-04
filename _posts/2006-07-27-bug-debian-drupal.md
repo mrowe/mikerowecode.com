@@ -1,4 +1,7 @@
-Bug in Debian Drupal package
+---
+layout: post
+title: Bug in Debian Drupal package
+---
 
 There's a small bug in the just-updated [Debian][1] [Drupal][2]
 package in sarge (see bug #368835). If you just installed the updated

@@ -1,4 +1,7 @@
-Using Tibco EMS with SunONE AS 7
+---
+layout: post
+title: Using Tibco EMS with SunONE AS 7
+---
 
 If for some reason you are unfortunate enough to have to use SunONE
 Advanced Server 7 (variously known as as7se, SunONE AS7, Sun Java

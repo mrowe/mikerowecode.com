@@ -1,4 +1,7 @@
-I've done it
+---
+layout: post
+title: I've done it
+---
 
 I've finished it. At last. [The Baroque Cycle][], [Neal Stephenson][]'s three
 volume mega novel, sort of a prequel to [Cryptonomicon][]. Roughly

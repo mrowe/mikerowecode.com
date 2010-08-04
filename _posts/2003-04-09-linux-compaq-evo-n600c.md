@@ -1,4 +1,7 @@
-Linux on a Compaq EVO N600c
+---
+layout: post
+title: Linux on a Compaq EVO N600c
+---
 
 There are [several good resources][1] for getting Linux running on a
 Compaq EVO laptop. A tip I haven't found elsewhere: unless you disable

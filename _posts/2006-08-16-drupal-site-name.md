@@ -1,4 +1,7 @@
-Setting the site name of a Drupal site
+---
+layout: post
+title: Setting the site name of a Drupal site
+---
 
 I just spent a frustrating couple of hours beating my head against a
 Drupal site, trying to change the site name (that appears in the site

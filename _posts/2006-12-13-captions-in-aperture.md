@@ -1,4 +1,7 @@
-Captions in Aperture
+---
+layout: post
+title: Captions in Aperture
+---
 
 Here is a [small AppleScript][4] that provides a marginally friendlier
 interface for entering captions in [Aperture][1] than the built in

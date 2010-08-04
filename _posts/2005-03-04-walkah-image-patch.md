@@ -1,4 +1,7 @@
-A patch to walkah's image module
+---
+layout: post
+title: A patch to walkah's image module
+---
 
 I just sent James the following patch to his new revamped <a
 href="http://drupal.org/">drupal</a> <a

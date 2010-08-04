@@ -1,4 +1,7 @@
-Job search update
+---
+layout: post
+title: Job search update
+---
 
 It's been a while coming, but here is a quick update on my job search:
 

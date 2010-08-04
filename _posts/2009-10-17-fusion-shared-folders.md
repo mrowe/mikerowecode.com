@@ -1,4 +1,7 @@
-Using VMWare Fusion shared folders with a Linux guest
+---
+layout: post
+title: Using VMWare Fusion shared folders with a Linux guest
+---
 
 [VMWare Fusion][] has a "shared folders" feature which allows you to
 seamlessly share folders on the host Mac system with the virtualised

@@ -1,4 +1,7 @@
-The First of Many Frequent Updates
+---
+layout: post
+title: The First of Many Frequent Updates
+---
 
 <p>In what will be the first of many frequent updates, we look at the
 current state of my blosxom blog!</p>

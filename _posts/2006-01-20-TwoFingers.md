@@ -1,4 +1,7 @@
-Look Ma! Two fingers!!
+---
+layout: post
+title: Look Ma! Two fingers!!
+---
 
 When I recently [broke my finger][1] (the pinky on my right hand) I
 realised that I'm a better typer than I thought. Because losing the

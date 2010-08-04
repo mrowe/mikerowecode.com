@@ -1,4 +1,7 @@
-Upgrade of moinmoin (wiki) in debian sid to 1.3x
+---
+layout: post
+title: Upgrade of moinmoin (wiki) in debian sid to 1.3x
+---
 
 Upgrade of [moin][] in debian sid is not quite as smooth as it could
 be... so, apart from running the backup and migrate scripts as

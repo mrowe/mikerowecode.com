@@ -1,4 +1,7 @@
-PCMCIA and your custom RedHat 9 kernel
+---
+layout: post
+title: PCMCIA and your custom RedHat 9 kernel
+---
 
 I recently wanted to compile a custom kernel for my RedHat 9 laptop.
 (For some reason, RedHat decided to omit NTFS support from their stock

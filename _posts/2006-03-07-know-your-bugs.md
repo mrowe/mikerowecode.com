@@ -1,4 +1,7 @@
-Know your bugs
+---
+layout: post
+title: Know your bugs
+---
 
 From [Wil Shipley][]:
 

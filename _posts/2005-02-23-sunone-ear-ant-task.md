@@ -1,4 +1,7 @@
-An Ant task for sun app server ear verification
+---
+layout: post
+title: An Ant task for sun app server ear verification
+---
 
 Here is an ant target that worked at least once to verify an EAR for
 deployment on SunONE...

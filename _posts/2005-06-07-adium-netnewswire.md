@@ -1,4 +1,7 @@
-Adium.NetNewsWire script
+---
+layout: post
+title: Adium.NetNewsWire script
+---
 
 This is an [Adium][] plug-in script that will insert a link to the url
 of the headline you are currently viewing in [NetNewsWire][]. This

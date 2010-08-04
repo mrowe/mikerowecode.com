@@ -1,4 +1,7 @@
-Playing the job search game
+---
+layout: post
+title: Playing the job search game
+---
 
 I want a new job. And I want one that doesn't suck. So doing the regular browse-the-job-boards-and-ring-recruiters dance didn't appeal.
 

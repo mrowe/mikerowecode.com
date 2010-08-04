@@ -1,4 +1,7 @@
-Subversion and IPCop
+---
+layout: post
+title: Subversion and IPCop
+---
 
 In the default configuration, [IPCop][]'s transparent proxy does not
 allow [subversion][] to work (when using WebDAV--ssh would be fine of

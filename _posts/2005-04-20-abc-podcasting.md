@@ -1,4 +1,7 @@
-ABC Radio National podcasts
+---
+layout: post
+title: ABC Radio National podcasts
+---
 
 The [ABC][] have announced plans to trial podcasting [Radio National][] programmes. This is Good News. Up until now, they have
 provided live and "on demand" Real Audio [streams][] of many programs, but

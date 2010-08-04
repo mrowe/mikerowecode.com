@@ -1,4 +1,7 @@
-Emacs full-screen shortcut
+---
+layout: post
+title: Emacs full-screen shortcut
+---
 
 When you're writing or coding, you want to remove as many distractions
 as possible. In addition to obvious things like shutting down you

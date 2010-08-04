@@ -1,4 +1,7 @@
-Spotlight Weirdness
+---
+layout: post
+title: Spotlight Weirdness
+---
 
 I've had the uneasy feeling for some time that [spotlight][] was not
 quite the full deal. I'd search for something, and not really be

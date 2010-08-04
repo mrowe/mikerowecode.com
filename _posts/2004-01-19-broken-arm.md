@@ -1,4 +1,7 @@
-Broken Arm
+---
+layout: post
+title: Broken Arm
+---
 
 <p>My son broke his arm today. I'm very proud. I've never broken any
 bones (well, except my big toe, but that hardly counts), and he's gone

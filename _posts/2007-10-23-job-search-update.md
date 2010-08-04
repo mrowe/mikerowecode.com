@@ -1,4 +1,7 @@
-Job search update
+---
+layout: post
+title: Job search update
+---
 
 My [job search experiment][1] is sitting at about one and a half for
 four at the moment.

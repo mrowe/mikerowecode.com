@@ -1,4 +1,7 @@
-Using git on subversion projects
+---
+layout: post
+title: Using git on subversion projects
+---
 
 Despite all the noise lately about distributed version control
 systems, the chances are any given project you want to work on today

@@ -1,4 +1,7 @@
-Setting up WordPress for a friend
+---
+layout: post
+title: Setting up WordPress for a friend
+---
 
 Last night, I set up [WordPress](http://www.wordpress.org/) for a
 friend. They [claim](http://wordpress.org/docs/installation/5-minute/)

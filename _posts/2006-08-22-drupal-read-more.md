@@ -1,4 +1,7 @@
-An inline "read more" link
+---
+layout: post
+title: An inline "read more" link
+---
 
 Summary pages in [Drupal][1], such as [this one][2], display "teasers"
 of the nodes (pages or blog entries) if the entry is longer than a

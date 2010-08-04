@@ -1,4 +1,7 @@
-Displaying a node in a block
+---
+layout: post
+title: Displaying a node in a block
+---
 
 I had a requirement to display a custom block on a drupal site, but to
 allow site editors to update the contents of the block. I don't

@@ -1,4 +1,7 @@
-Quick techo update
+---
+layout: post
+title: Quick techo update
+---
 
 I've played around a bit with the HTML "flavour" (template), and tried
 to make things look a bit like the main <a

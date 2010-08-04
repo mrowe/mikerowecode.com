@@ -1,4 +1,7 @@
-Spaces becomes usable in OS X 10.5.3
+---
+layout: post
+title: Spaces becomes usable in OS X 10.5.3
+---
 
 [Spaces][] was one of the most anticipated features in Leopard, at
 least for Unix/X11 refugees like myself. X has had virtual desktops

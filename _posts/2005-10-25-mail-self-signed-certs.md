@@ -1,4 +1,7 @@
-Self-signed certificates in Mail.app
+---
+layout: post
+title: Self-signed certificates in Mail.app
+---
 
 I run my own mail server, including an IMAP server. I use SSL, but I
 was not about to pay Verisign (or anyone else) for a signed

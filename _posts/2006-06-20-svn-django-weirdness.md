@@ -1,4 +1,7 @@
-Solving weirdness in an svn updated django install
+---
+layout: post
+title: Solving weirdness in an svn updated django install
+---
 
 I am playing with the "trunk" version of [Django][1], a nifty
 python-based web framework. This evening, I spent a few hours getting

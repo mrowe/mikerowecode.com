@@ -1,4 +1,7 @@
-Another patch for pyblosxom entrycache - normalised keys
+---
+layout: post
+title: Another patch for pyblosxom entrycache - normalised keys
+---
 
 The entrycache plugin uses the absolute path of a file as the key for
 caching its date. This is problematic if the file is moved (e.g. your

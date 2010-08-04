@@ -1,4 +1,7 @@
-A subtle understatement...
+---
+layout: post
+title: A subtle understatement...
+---
 
 From [David
 A. Wheeler](http://www.dwheeler.com/blog/2005/03/23#epassword), in an

@@ -1,4 +1,7 @@
-Printing from windows with samba and cups
+---
+layout: post
+title: Printing from windows with samba and cups
+---
 
 The default debian (woody) config of cups didn't quite allow this to
 work... make the following changes (to enable raw printing via the

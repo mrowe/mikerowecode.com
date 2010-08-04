@@ -1,4 +1,7 @@
-I'm all tigered up!
+---
+layout: post
+title: I'm all tigered up!
+---
 
 So, I took myself off to the local AppleCentre Friday evening, just after 6pm, like a good fanboy. :) Unfortunately, family and social commitments (what sort of a geek am I?) prevented me from installng it until this morning, but now I'm in dashboard and spotlight bliss.
 

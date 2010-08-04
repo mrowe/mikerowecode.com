@@ -1,4 +1,7 @@
-New home for a blog
+---
+layout: post
+title: New home for a blog
+---
 
 My blog has moved to a dedicated new home:
 [http://www.mikerowecode.com/](http://www.mikerowecode.com/)

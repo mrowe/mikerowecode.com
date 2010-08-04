@@ -1,4 +1,7 @@
-Griffin EarJams Revisited
+---
+layout: post
+title: Griffin EarJams Revisited
+---
 
 I was quite quick to [complain
 about](http://www.mojain.com/~mrowe/blog/geek/griffin_earjams.html)

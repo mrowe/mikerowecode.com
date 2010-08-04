@@ -1,4 +1,7 @@
-Enabling git bash completion on OS X
+---
+layout: post
+title: Enabling git bash completion on OS X
+---
 
 Bash completion, the magic that allows you to start typing the name of
 a file, directory, etc. in bash then press TAB to complete it, can be

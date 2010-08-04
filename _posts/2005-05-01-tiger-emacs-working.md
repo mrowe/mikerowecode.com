@@ -1,4 +1,7 @@
-Got emacs working on tiger
+---
+layout: post
+title: Got emacs working on tiger
+---
 
 What seemed to make the difference was adding "--without-x" to the
 configure:

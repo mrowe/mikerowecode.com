@@ -1,4 +1,7 @@
-Code Construction
+---
+layout: post
+title: Code Construction
+---
 
 I have a bit of a thing about it. Crappy code. Or, more to the point,
 crappy habits and attitudes towards writing code. I am trying to make

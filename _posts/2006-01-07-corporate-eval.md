@@ -1,4 +1,7 @@
-What customers look for
+---
+layout: post
+title: What customers look for
+---
 
 I learnt something today. I've been involved in evaluating vendor
 reponses to an RFP for a small-ish bespoke system development. The

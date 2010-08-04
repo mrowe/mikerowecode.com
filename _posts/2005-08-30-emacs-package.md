@@ -1,4 +1,7 @@
-Aqua Emacs Installer
+---
+layout: post
+title: Aqua Emacs Installer
+---
 
 I have been occasionally building Emacs packages for the Mac from
 CVS. Anyone can do this, of course. Just get the latest source code:

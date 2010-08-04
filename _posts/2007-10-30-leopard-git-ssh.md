@@ -1,4 +1,7 @@
-Leopard breaking MacPorts git over ssh
+---
+layout: post
+title: Leopard breaking MacPorts git over ssh
+---
 
 As I have been [twitting][1] recently, git over ssh stopped working
 for me after the upgrade to Leopard:

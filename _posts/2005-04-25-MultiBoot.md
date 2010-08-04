@@ -1,4 +1,7 @@
-Booting many operating systems on one box
+---
+layout: post
+title: Booting many operating systems on one box
+---
 
 My main workstation PC has two physical IDE hard disks. Since one of
 them is about 60G (and I don't have that many mp3s), I figured I may

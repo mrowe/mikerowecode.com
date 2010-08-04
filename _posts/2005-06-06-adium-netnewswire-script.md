@@ -1,4 +1,7 @@
-Adium script to insert NetNewsWire URL
+---
+layout: post
+title: Adium script to insert NetNewsWire URL
+---
 
 I quite often find myself reading feeds in [NetNewsWire][] and find
 something I want to share with a "buddy" in an [Adium][] chat. Adium

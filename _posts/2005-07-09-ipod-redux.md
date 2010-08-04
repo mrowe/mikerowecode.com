@@ -1,4 +1,7 @@
-iPod Redux
+---
+layout: post
+title: iPod Redux
+---
 
 A couple of cool things of note about my iPod and iTunes 4.9. First,
 and this has probably been there forever and I just didn't notice, but

@@ -1,4 +1,7 @@
-Blosxom static rendering and the Textile plugin
+---
+layout: post
+title: Blosxom static rendering and the Textile plugin
+---
 
 There's a known problem with the Textile plugin for blosxom in static
 rendering mode. <http://groups.yahoo.com/group/blosxom/message/4052>

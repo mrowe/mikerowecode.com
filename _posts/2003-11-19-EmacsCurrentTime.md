@@ -1,4 +1,7 @@
-Insert current time in an emacs buffer
+---
+layout: post
+title: Insert current time in an emacs buffer
+---
 
 A lot of text editors (way back to the days of Borland's
 SideKick--wow, what a blast!) provided an easy way to insert the

@@ -1,4 +1,7 @@
-Word is not text
+---
+layout: post
+title: Word is not text
+---
 
 Note to self: next time you have occasion to commit a Word document
 to CVS (_dog_ forbid), make sure you tell it that it's a __binary__

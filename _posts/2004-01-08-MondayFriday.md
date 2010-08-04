@@ -1,4 +1,7 @@
-Monday - Friday
+---
+layout: post
+title: Monday - Friday
+---
 
 <p>Well, as expected, I've left it too long between drinks, and I've
 forgotten most of what I did last week. No doubt beer was involved. Or

@@ -1,4 +1,7 @@
-Got some Griffin EarJams
+---
+layout: post
+title: Got some Griffin EarJams
+---
 
 I really should learn to [read][1] [reviews][2] _before_ I rush out
 and buy something...

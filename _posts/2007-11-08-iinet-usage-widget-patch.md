@@ -1,4 +1,7 @@
-Multiple instances of the iiNet Usage Widget
+---
+layout: post
+title: Multiple instances of the iiNet Usage Widget
+---
 
 There is a very handy [usage widget][1] for iiNet available at
 [LemonJar][2]. However, the way it stores its preferences for iiNet

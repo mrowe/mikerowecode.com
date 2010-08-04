@@ -1,4 +1,7 @@
-Apple Mail.app "not responding"
+---
+layout: post
+title: Apple Mail.app "not responding"
+---
 
 This morning, my mail server was rebooted by my 
 [ISP](http://rimuhosting.com/). This is not extraordinary in itself,

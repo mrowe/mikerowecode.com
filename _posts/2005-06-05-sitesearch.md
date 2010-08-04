@@ -1,4 +1,7 @@
-Google site search
+---
+layout: post
+title: Google site search
+---
 
 Finally, I have [Google][] [site search][] working. (See the search box
 on the left.) I'm not sure what the problem was, but the last few

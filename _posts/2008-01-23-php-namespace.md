@@ -1,4 +1,7 @@
-PHP namespace
+---
+layout: post
+title: PHP namespace
+---
 
 This comment from the [Drupal Theme developer's guide][1] is an
 example of why whatever your question, PHP is not the answer:

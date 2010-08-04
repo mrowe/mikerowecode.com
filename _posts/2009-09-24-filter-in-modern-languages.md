@@ -1,4 +1,7 @@
-Filtering lists 
+---
+layout: post
+title: Filtering lists 
+---
 
 Recently, my friend Gav wrote about [using STL to filter a vector of
 values in C++][1] in which he explained a surprising gotcha. I'm sure

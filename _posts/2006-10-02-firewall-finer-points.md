@@ -1,4 +1,7 @@
-The finer points of maintaining a firewall
+---
+layout: post
+title: The finer points of maintaining a firewall
+---
 
 Last Saturday, I learnt something. (Not that this is an unusual
 occurrence, of course.) I was trying to upgrade my [Ubuntu][1] box to

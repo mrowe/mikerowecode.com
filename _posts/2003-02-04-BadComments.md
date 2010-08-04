@@ -1,4 +1,7 @@
-How not to comment your code
+---
+layout: post
+title: How not to comment your code
+---
 
 Below is a piece of code I came across recently while reviewing
 somebody else's work. It is a terrific example of how <b>not</b> to

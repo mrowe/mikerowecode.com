@@ -1,4 +1,7 @@
-Adding captions in Aperture
+---
+layout: post
+title: Adding captions in Aperture
+---
 
 [1]: http://www.apple.com/aperture/
 [2]: http://gallery.therowes.id.au/

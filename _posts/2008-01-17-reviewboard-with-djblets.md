@@ -1,4 +1,7 @@
-Reviewboard git mirror
+---
+layout: post
+title: Reviewboard git mirror
+---
 
 For some months now, I've been maintaining a [git mirror][1] of the [Reviewboard][2] project's [svn repository][3]. The [git-svn][4] tool works really well for this, except for one small wrinkle: the reviewboard projects uses svn:external to include an external module, djblets, and git-svn provides no transparent way to support this.
 

@@ -1,4 +1,7 @@
-A better pair of earphones
+---
+layout: post
+title: A better pair of earphones
+---
 
 Last year, I [bought some EarJams][1] for my iPod.
 

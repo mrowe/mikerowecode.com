@@ -1,4 +1,7 @@
-Problem adding a user in Mac OS X
+---
+layout: post
+title: Problem adding a user in Mac OS X
+---
 
 Weird... I tried to create an account for a friend on my Powerbook
 today (Mac OS X Tiger 104.1), and it kept failing.  Well, it appeared

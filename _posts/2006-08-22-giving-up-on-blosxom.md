@@ -1,4 +1,7 @@
-Giving up on blosxom
+---
+layout: post
+title: Giving up on blosxom
+---
 
 I'm giving up on blosxom. Not that there's anything wrong with it, but the advantages of keeping my [blog][1] in [Drupal][2] are too great to ignore.
 

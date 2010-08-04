@@ -17,6 +17,6 @@ its employees *and* its customers humanely. It's very open and free of
 bureaucratic nonsense. And it's full of really smart people--although
 the average probably just went down bit... :-)
 
-[said previously]: /2007/10/job_search.html
+[said previously]: /2007/10/job-search.html
 [Cogent]: http://cogentconsulting.com.au/
 [Runway]: http://www.runwayapp.com/

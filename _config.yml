@@ -3,3 +3,4 @@ lsi: true
 pygments: true
 permalink: /:year/:month/:title.html
 url: http://mrowe.github.com
+domain: mikerowecode.com

@@ -64,12 +64,15 @@ a:hover  { text-decoration: underline; }
   border: 1px solid silver;
 }
 
+#archives h3 {
+  margin-top: 2em;
+}
 #archives ul {
   padding-left: 0px;
-}
-#sidebar ul.archives li ul { 
   margin-bottom: 1em; 
-  list-style: none; 
+}
+#archives ul li {
+  margin-left: 3em;
 }
 
 #content {

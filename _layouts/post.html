@@ -9,6 +9,9 @@ layout: default
   {{ content }}
 </div>
 
+{% comment %}
+Hide this until we can style it nicely...
+
 <div>
   <ul>
     {% if page.next %}
@@ -19,3 +22,14 @@ layout: default
     {% endif %}
   </ul>
 </div>
+
+<h2>Possibly related&hellip;</h2>
+<div>
+  <ul>
+    {% for post in site.related_posts | limit:4 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endcomment %}

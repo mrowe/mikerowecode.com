@@ -59,6 +59,11 @@ a:hover  { text-decoration: underline; }
 	margin-bottom: 3em;
 }
 
+fieldset {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
 #search input {
   background-color: white;
   color: inherit;

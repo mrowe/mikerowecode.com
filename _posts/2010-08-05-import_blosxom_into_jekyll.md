@@ -42,7 +42,7 @@ Jekyll wants a much flatter directory layout, with all the files in a
 single directory and the date as part of the file name:
 
     .
-    |-- _posts
+    `-- _posts
         |-- 2009-04-01-an-interesting-story.md
         |-- 2009-04-19-something-else.md
         |-- 2010-01-01-happy-new-year.md

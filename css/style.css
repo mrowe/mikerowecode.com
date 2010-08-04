@@ -6,6 +6,9 @@ body {
   color: #000;
 }
 
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+
 h1, h1 a, h1 a:link, h1 a:visited { 
   text-decoration: none;
   color: black;

@@ -2,4 +2,4 @@ markdown: rdiscount
 lsi: true
 pygments: true
 permalink: /:year/:month/:title.html
-url: http://mikerowecode.com
+url: http://mrowe.github.com

@@ -119,7 +119,7 @@ And that was more or less that! The above code is available on github at
 and of course the entire content of my blog is at
 [http://github.com/mrowe/mrowe.github.com](http://github.com/mrowe/mrowe.github.com).
 
-[mentioned]: /2010/08/blog-migration.html]
+[mentioned]: /2010/08/blog-migration.html
 [Blosxom]: http://www.blosxom.com/
 [github pages]: http://pages.github.com/
 [Jekyll]: http://wiki.github.com/mojombo/jekyll/

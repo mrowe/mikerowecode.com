@@ -105,7 +105,9 @@ fieldset {
   padding-left: 0.14em;
 }
 .byline p { margin-top: 0px; }
-
+.byline a, .byline a:link, .byline a:visited {
+  color: gray;
+}
 .story p { margin-bottom: 1.4em; }
 .story { margin-bottom: 4em; }
 

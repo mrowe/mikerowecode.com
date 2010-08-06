@@ -3,7 +3,7 @@ layout: default
 ---
 <h2><a href="">{{ page.title }}</a></h2>
 <div class="byline">
-  <p>{{ page.date | date:"%Y-%m-%d" }}</p>
+  <p>{{ page.date | date:"%Y-%m-%d" }}&nbsp; &ndash; &nbsp;<a href="#disqus_thread"></a></p>
 </div>
 <div class="story">
   {{ content }}
@@ -33,3 +33,11 @@ Hide this until we can style it nicely...
 </div>
 
 {% endcomment %}
+
+<div class="comments-section">
+  <h3 id="comments">Comments</h3>
+  <script type="text/javascript">
+    var disqus_identifier = "{{ page.url }}";
+  </script>
+  {% include disqus.html %}
+</div>

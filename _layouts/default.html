@@ -62,6 +62,17 @@
       </ul>
     </div>
 
+    {% if site.related_posts.size > 0 %}
+    <h2>Possibly related</h2>
+    <div class="related-posts">
+      <ul>
+        {% for post in site.related_posts | limit:6 %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
     <h2>Search</h2>
     <div id="search">
      <form method="get" action="http://google.com/search">

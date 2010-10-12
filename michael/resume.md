@@ -49,20 +49,43 @@ Michael has worked on numerous projects for Cogent's customers,
 including significant public Ruby on Rails and Java-based
 applications.
 
+#### Projects:
+
+* _REA Group_ - Michael is currently helping REA Group implement
+  continuous delivery to streamline their software development and
+  release processes.
+
+* _Lonely Planet_ - Over a period of 18 months Michael helped Lonely
+  Planet deliver a number of key improvements to their web site,
+  including “Contact Us”, private messaging and their re-launched
+  online shop. Significant technical components of this work included:
+
+  * Integration with Facebook
+  * Integration with Zendesk
+  * Migration of legacy customer support data
+  * Delivery of a digital fulfillment service
+
+* _Majitek_ - Michael spent six months in 2009 working with Majitek on
+  their connected real estate management product. Michael contributed
+  to feature development in many parts of the Spring and
+  Hibernate-based system, and also undertook a major effort to “skin”
+  the UI of the application to allow Majitek to customise its look and
+  feel for their customers.
+
 In between customer engagements, Michael also spent some time working
 on Cogent's *Getting Things Done*&reg; product, [Runway][].
 
 [Runway]: http://www.runwayapp.com/
+[Zendesk]: http://www.zendesk.com/
 
 ###_Senior Developer_
 __Lonely Planet Publications__ (Footscray, VIC, Australia)  
 May 2008 - March 2009
 
-Michael was engaged for a six month contract with Lonely Planet to
-join the major redevelopment of their public web site. In the course
-of the contract Michael worked on many components of the site,
-including the Drupal-based content management system and Java web
-applications.
+Michael was engaged with Lonely Planet to join the major redevelopment
+of their public web site. In the course of the contract Michael worked
+on many components of the site, including the Drupal-based content
+management system and Java web applications.
 
 Michael also acted as a technical team leader for much of the
 contract, being responsible for the day to day management and

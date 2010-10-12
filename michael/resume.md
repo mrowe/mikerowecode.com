@@ -33,7 +33,7 @@ books.
     (e.g. [Drupal][], [Reviewboard][]).
 
 [drupal]: http://www.drupal.org/
-[reviewboard]: http://code.google.com/p/reviewboard/
+[reviewboard]: http://www.reviewboard.org/
 
 ## Employment History
 

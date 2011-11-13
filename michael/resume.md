@@ -24,7 +24,7 @@ junior developers and publishing articles and books.
 ## Employment History
 
 ###_Senior Developer_
-__REA Group__ (Melbourne, VIC, Australia)
+__REA Group__ (Melbourne, VIC, Australia)  
 Jan 2011 - present
 
 Michael is currently employed as a senior developer on REA's mobile

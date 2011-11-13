@@ -374,34 +374,3 @@ May 1993 - February 1997
 
 Higher School Certificate, 1986
 Banyule High School
-
-## Skills
-
-__General__: software design and architecture, object-oriented
-analysis and design, technical team leadership, UML, project
-management.
-
-__Programmming Languages/Tools__: Java (J2EE, EJBs, JDBC, JMS, XML, JTA,
-JCA, servlets, JSP), Perl (inc. CGI, DBI, XML), Python, PHP, HTML,
-XHTML, CSS, DHTML, JavaScript, C, sh/bash script.
-
-__Application Servers/Middleware__: Apache, Tomcat, PHP, modperl, django,
-IBM WebSphere, BEA WebLogic, OpenLDAP.
-
-__Databases__: Oracle 8i, 9i, 10g, MySQL, Postgres.
-
-__Operating Systems__: Unix (Solaris, Tru64, AIX), Linux (RedHat, Debian,
-Ubuntu), Mac OS X, FreeBSD, OpenBSD.
-
-__Networking__: TCP/IP, SMTP (sendmail, exim), DNS (bind), LAN and WAN
-communications, firewalls (pf, ipfilter, ipnat, ipchains, iptables,
-ipmasq).
-
-__Configuration Management/Development Tools__: GNU Emacs, git, Mercurial,
-CVS, Subversion, Eclipse, IntelliJ.
-
-## Hobbies
-
- * Photography
- * Theatre
- * Cricket

@@ -51,9 +51,14 @@ applications.
 
 #### Projects:
 
-* _REA Group_ - Michael is currently helping REA Group implement
-  continuous delivery to streamline their software development and
-  release processes.
+* _REA Group_ - Michael helped REA Group implement continuous delivery
+  to streamline their software development and release processes.
+  Starting from a chaotic and largely manual release process, Michael
+  and a small team developed tools and recipes to use [Chef][] to
+  deploy REA's applications to a "virtual private cloud" in Amazon's
+  EC2.
+
+[Chef]: http://www.opscode.com/chef/
 
 * _Lonely Planet_ - Over a period of 18 months Michael helped Lonely
   Planet deliver a number of key improvements to their web site,

@@ -23,8 +23,16 @@ junior developers and publishing articles and books.
 
 ## Employment History
 
+###_Senior Developer_
+__REA Group__ (Melbourne, VIC, Australia)
+Jan 2011 - present
+
+Michael is currently employed as a senior developer on REA's mobile
+team, responsible for development and maintenance of REA's iPhone and
+iPad applications.
+
 __Cogent Consulting__ (Melbourne, VIC, Australia)  
-April 2009 - present
+April 2009 - Jan 2011
 
 Michael is an experienced consultant, developer and team leader with
 expertise in many development environments and platforms. As well as
@@ -355,6 +363,7 @@ May 1993 - February 1997
  * Association for Computing Machinery
  * Institute of Electrical and Electronic Engineers
  * IEEE Computer Society
+
 
 ## Education
 

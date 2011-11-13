@@ -50,7 +50,8 @@ applications.
   Starting from a chaotic and largely manual release process, Michael
   and a small team developed tools and recipes to use [Chef][] to
   deploy REA's applications to a "virtual private cloud" in Amazon's
-  EC2.
+  EC2, enabling development teams to more effective deploy and test
+  core applications.
 
 [Chef]: http://www.opscode.com/chef/
 

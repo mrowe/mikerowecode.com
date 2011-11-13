@@ -14,26 +14,12 @@ Home Fax: +61 (0) 3 8677 1881
 Email: <a href="mailto:mrowe@mojain.com">mrowe@mojain.com</a>  
 URL: <a href="http://mikerowecode.com/">http://mikerowecode.com/</a>  
 
+
 ## Professional Objective
 
-To be an expert software designer and coder. To work on infrastructure
-and framework projects. To share my expertise by writing articles and
-books.
-    
-## Interests
+To be an expert software developer. To share my expertise by mentoring
+junior developers and publishing articles and books.
 
-* High quality software design and coding
-
-* Frameworks and dynamic languages
-
-* Open source technology. 
-
-    I believe strongly in the benefits of open source software
-    development. I have made contributions to open source projects
-    (e.g. [Drupal][], [Reviewboard][]).
-
-[drupal]: http://www.drupal.org/
-[reviewboard]: http://www.reviewboard.org/
 
 ## Employment History
 

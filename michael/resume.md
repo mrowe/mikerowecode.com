@@ -30,13 +30,14 @@ junior developers and publishing articles and books.
 __REA Group__ (Melbourne, VIC, Australia)  
 Dec 2012 - present
 
-The consumer-facing web application that powers realestate.com.au is
+The consumer-facing web application that powers [realestate.com.au][1] is
 backed by provisioning, messaging and search systems that have evolved
 over several years. Michael leads a small team of engineers with
 responsibility for the long-term architectural direction of these
 systems, and for undertaking project work in cooperation with
 line-of-business teams to implement technical improvements.
 
+[1]: http://realestate.com.au/
 
 ###_Senior Developer_
 __REA Group__ (Melbourne, VIC, Australia)  

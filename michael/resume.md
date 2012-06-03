@@ -25,11 +25,24 @@ junior developers and publishing articles and books.
 
 ## Employment History
 
+
+###_Tech Lead_
+__REA Group__ (Melbourne, VIC, Australia)  
+Dec 2012 - present
+
+The consumer-facing web application that powers realestate.com.au is
+backed by provisioning, messaging and search systems that have evolved
+over several years. Michael leads a small team of engineers with
+responsibility for the long-term architectural direction of these
+systems, and for undertaking project work in cooperation with
+line-of-business teams to implement technical improvements.
+
+
 ###_Senior Developer_
 __REA Group__ (Melbourne, VIC, Australia)  
-Jan 2011 - present
+Jan 2011 - Dec 2011
 
-Michael is currently employed as a senior developer on REA's mobile
+Michael was currently employed as a senior developer on REA's mobile
 team, responsible for development and maintenance of REA's iPhone and
 iPad applications.
 

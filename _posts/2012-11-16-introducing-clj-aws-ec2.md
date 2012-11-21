@@ -51,7 +51,7 @@ adding create/terminate instances next.
 [Java SDK]: http://aws.amazon.com/sdkforjava/
 [S3 API]: https://github.com/weavejester/clj-aws-s3
 
-__UPDATE__ I just released [v0.1.6] which includes `run_instance` and
+__UPDATE__: I just released [v0.1.6] which includes `run_instance` and
 `terminate_instance` support.
 
 [v0.1.6]: https://github.com/mrowe/clj-aws-ec2/tree/0.1.6

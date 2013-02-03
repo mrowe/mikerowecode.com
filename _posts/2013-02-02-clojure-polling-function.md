@@ -75,7 +75,10 @@ There's a couple of improvements that could be made to `wait-for`, the most obvi
 
 Comments and improvements welcome!
 
+_UPDATE_: My colleague [Eric Entzel][] pointed out that there is no need to use atoms to store and update the "waiting" counter, its state can just be passed around with function invocations (and recursion). The above gist has been simplified to reflect this observation.
+
 [AWS]: http://aws.amazon.com/
 [clj-aws-ec2]: https://github.com/mrowe/clj-aws-ec2
 [Chas Emerick]: http://cemerick.com/
 [bandalore]: https://github.com/cemerick/bandalore
+[Eric Entzel]: http://www.ubermac.net

@@ -3,7 +3,7 @@ layout: post
 title: A simple polling function in Clojure
 ---
 
-One of my projects at work is to build an internal web service around [AWS][] to support our internal tooling. (This led to the development my [clj-aws-ec2][] library).
+One of my projects at work is to build an internal web service around [AWS][] to support our internal tooling. (This led to the development my [clj-aws-ec2][] library.)
 
 The web service needs "integration" tests that exercise its RESTful API to manipulate AWS resources (i.e. create instances, add tags, etc.). This sort of testing is fraught for many reasons and should be kept to a minimum, but it does provide a bit of an assurance that the service will actually respond to its published interface when deployed.
 

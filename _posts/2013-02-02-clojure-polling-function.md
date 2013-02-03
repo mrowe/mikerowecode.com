@@ -77,6 +77,8 @@ Comments and improvements welcome!
 
 __UPDATE__: My colleague [Eric Entzel][] pointed out that there is no need to use an atom to store and update the "waiting" counter, its state can just be passed around with function invocations (and recursion). The above gist has been simplified to reflect this observation.
 
+__UPDATE__: Even better, when I went to implement the "wall clock" timeout, I realised there is no need to maintain any state at all, since the absolute timeout time can be calculated up front and compared to the system clock on each evaluation. Gist updated again.
+
 [AWS]: http://aws.amazon.com/
 [clj-aws-ec2]: https://github.com/mrowe/clj-aws-ec2
 [Chas Emerick]: http://cemerick.com/

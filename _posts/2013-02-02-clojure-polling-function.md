@@ -79,8 +79,11 @@ __UPDATE__: My colleague [Eric Entzel][] pointed out that there is no need to us
 
 __UPDATE__: Even better, when I went to implement the "wall clock" timeout, I realised there is no need to maintain any state at all, since the absolute timeout time can be calculated up front and compared to the system clock on each evaluation. (I also flipped the timeout test and the sleep, to more accurately relfect the intent of a timeout.) Gist updated again.
 
+__UPDATE__: And finally, [Adam Fitzpatrick][] noticed that there's no longer any need to let bind the poller function to a symbol, we can just put its contents in the main function body. Gist updated again.
+
 [AWS]: http://aws.amazon.com/
 [clj-aws-ec2]: https://github.com/mrowe/clj-aws-ec2
 [Chas Emerick]: http://cemerick.com/
 [bandalore]: https://github.com/cemerick/bandalore
 [Eric Entzel]: http://www.ubermac.net
+[Adam Fitzpatrick]: http://lurking.org/lurker/

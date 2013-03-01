@@ -3,7 +3,7 @@ layout: default
 ---
 <h1><a href="">{{ page.title }}</a></h1>
 <div class="byline">
-  <p>{{ page.date | date:"%Y-%m-%d" }}&nbsp; &ndash; &nbsp;<a href="{{ page.url }}#disqus_thread"></a></p>
+  <p>{{ page.date | date:"%Y-%m-%d" }}&nbsp; &ndash; &nbsp;<a href="{{ site.url }}{{ page.url }}#disqus_thread"></a></p>
 </div>
 <div class="story">
   {{ content }}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Clojure libary to authenticate with LDAP"
+title: "A Clojure library to authenticate with LDAP"
 ---
 
 [My employer][] has released a small Clojure library I wrote that allows you to easily authenticate users against an LDAP server:

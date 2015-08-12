@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Static Analysis  what's it good for?"
+title: "Static Analysis--what's it good for?"
 ---
 
 Let's face it, writing software is hard. And frankly we humans suck at

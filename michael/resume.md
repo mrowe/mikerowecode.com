@@ -123,46 +123,45 @@ applications.
 __Cogent Consulting__ (Melbourne, VIC, Australia)  
 April 2009 - Jan 2011
 
-Michael is an experienced consultant, developer and team leader with
-expertise in many development environments and platforms. As well as
-cutting code, he is skilled at configuring the systems and tools that
-support the development process.
+I am an experienced consultant, developer and team leader with expertise in
+many development environments and platforms. As well as cutting code,
+I am skilled at configuring the systems and tools that support the
+development process.
 
-Michael has worked on numerous projects for Cogent's customers,
-including significant public Ruby on Rails and Java-based
-applications.
+I've worked on numerous projects for Cogent's customers, including
+significant public Ruby on Rails and Java-based applications.
 
 #### Projects:
 
-* _REA Group_ - Michael helped REA Group implement continuous delivery
-  to streamline their software development and release processes.
-  Starting from a chaotic and largely manual release process, Michael
-  and a small team developed tools and recipes to use [Chef][] to
+* _REA Group_ - I helped REA Group implement continuous delivery to
+  streamline their software development and release processes.
+  Starting from a chaotic and largely manual release process, I was
+  part of a small team developed tools and recipes to use [Chef][] to
   deploy REA's applications to a "virtual private cloud" in Amazon's
   EC2, enabling development teams to more effective deploy and test
   core applications.
 
 [Chef]: http://www.opscode.com/chef/
 
-* _Lonely Planet_ - Over a period of 18 months Michael helped Lonely
-  Planet deliver a number of key improvements to their web site,
-  including “Contact Us”, private messaging and their re-launched
-  online shop. Significant technical components of this work included:
+* _Lonely Planet_ - Over a period of 18 months I helped Lonely Planet
+  deliver a number of key improvements to their web site, including
+  “Contact Us”, private messaging and their re-launched online shop.
+  Significant technical components of this work included:
 
   * Integration with Facebook
   * Integration with Zendesk
   * Migration of legacy customer support data
   * Delivery of a digital fulfillment service
 
-* _Majitek_ - Michael spent six months in 2009 working with Majitek on
-  their connected real estate management product. Michael contributed
-  to feature development in many parts of the Spring and
-  Hibernate-based system, and also undertook a major effort to “skin”
-  the UI of the application to allow Majitek to customise its look and
-  feel for their customers.
+* _Majitek_ - I spent six months in 2009 working with Majitek on their
+  connected real estate management product. I contributed to feature
+  development in many parts of the Spring and Hibernate-based system,
+  and also undertook a major effort to “skin” the UI of the
+  application to allow Majitek to customise its look and feel for
+  their customers.
 
-In between customer engagements, Michael also spent some time working
-on Cogent's *Getting Things Done*&reg; product, [Runway][].
+In between customer engagements, I also spent some time working on
+Cogent's *Getting Things Done*&reg; product, [Runway][].
 
 [Runway]: http://www.runwayapp.com/
 [Zendesk]: http://www.zendesk.com/
@@ -171,38 +170,40 @@ on Cogent's *Getting Things Done*&reg; product, [Runway][].
 __Lonely Planet Publications__ (Footscray, VIC, Australia)  
 May 2008 - March 2009
 
-Michael was engaged with Lonely Planet to join the major redevelopment
-of their public web site. In the course of the contract Michael worked
-on many components of the site, including the Drupal-based content
-management system and Java web applications.
+I was engaged with Lonely Planet to join the major redevelopment of
+their public web site. In the course of the contract I worked on many
+components of the site, including the Drupal-based content management
+system and Java web applications.
 
-Michael also acted as a technical team leader for much of the
-contract, being responsible for the day to day management and
-technical output of five developers.
+I also acted as a technical team leader for much of the contract,
+being responsible for the day to day management and technical output
+of five developers.
 
 
 ### _Senior Developer_
 __Fast Search & Transfer__ (Melbourne, VIC, Australia)  
 November 2007 - January 2008
 
-Michael was employed by FAST on a short-term contract to help with a major release of their AdMomentum product.
+I was employed by FAST on a short-term contract to help with a major
+release of their AdMomentum product.
 
-Tasks included fixing bugs and adding features in both the struts-based web front end and the stand-alone Java back end.
+Tasks included fixing bugs and adding features in both the
+struts-based web front end and the stand-alone Java back end.
 
 
 ### _Senior Developer_  
 __National Australia Bank__ (Melbourne, VIC, Australia)  
 January 2007 - November 2007
 
-Michael was contracted to NAB as a senior developer in a large project
-team developing customer-facing J2EE systems.
+I was contracted to NAB as a senior developer in a large project team
+developing customer-facing J2EE systems.
 
 
 ### _Senior Developer_  
 __CGU Insurance__ (Melbourne, VIC, Australia)  
 September 2006 - January 2007
 
-Michael was contracted to CGU Insurance (part of IAG) to work on a new
+I was contracted to CGU Insurance (part of IAG) to work on a new
 programme of work to develop a framework and end user applications
 that provide a modern user interface to legacy policy management
 systems.
@@ -227,16 +228,16 @@ based on data managed by a legacy mainframe system.
 __Australia Post__ (Melbourne, VIC, Australia)  
 November 2005 - August 2006
 
-Michael's role in the Solution Architecture group at Australia Post
-involves performing technical quality assurance for projects developed
-by Post's external service providers. This includes document, design
-and code reviews, as well as general support and coordination of
+My role in the Solution Architecture group at Australia Post involved
+performing technical quality assurance for projects developed by
+Post's external service providers. This included document, design and
+code reviews, as well as general support and coordination of
 development, test and production environments.
 
-Michael engages with external lead designers and developers and
-internal technical teams to provide specialist guidance, ensuring
-applications are designed, developed, tested, and deployed properly
-and in accordance with enterprise standards.
+I engaged with external lead designers and developers and internal
+technical teams to provide specialist guidance, ensuring applications
+are designed, developed, tested, and deployed properly and in
+accordance with enterprise standards.
 
 #### Projects:
 
@@ -251,7 +252,7 @@ and in accordance with enterprise standards.
 __Sensis Pty Ltd__ (Melbourne, VIC, Australia)  
 February 2004 - October 2005  
 
-Michael was contracted to Sensis Pty Ltd to work on an enterprise-wide
+I was contracted to Sensis Pty Ltd to work on an enterprise-wide
 integrated content management system. The work involved custom J2EE
 application development and integration using Tibco and Sun
 components.
@@ -260,8 +261,8 @@ Key challenges in this project included development of components for
 high performance XML data manipulation, and concurrent scheduling of
 inter-dependent work units.
 
-Michael was engaged on various components of the system over the life
-of the project, including:
+I was engaged on various components of the system over the life of the
+project, including:
 
 #### Projects:
 
@@ -280,10 +281,10 @@ of the project, including:
 __BearingPoint, Inc.__ (formerly KPMG Consulting) (Melbourne, VIC, Australia)  
 January 2002 - January 2004
 
-Michael held the position of senior consultant in the Technology
-Integration Services practice of BearingPoint, Inc. He was responsible
-for and involved in a wide range of consulting assignments covering
-design and implementation of complex information technology systems.
+I held the position of senior consultant in the Technology Integration
+Services practice of BearingPoint, Inc. He was responsible for and
+involved in a wide range of consulting assignments covering design and
+implementation of complex information technology systems.
 
 #### Projects:
 
@@ -312,11 +313,11 @@ design and implementation of complex information technology systems.
 __IBM Global Services__ (Atlanta, GA, USA)  
 November 1999 - December 2001
 
-Michael was employed as a Solution Architect within IBM's <strong
+I was employed as a Solution Architect within IBM's <strong
 class="emphasis">Center for E-Business Innovation</strong>, primarily
 as part of the content management/e-publishing team.
 
-Michael's duties at IBM included: designing and developing web-based
+My duties at IBM included: designing and developing web-based
 (Internet and intranet) publishing, content management and portal
 solutions for IBM's customers; managing small to medium development
 projects; providing leadership and mentoring to other members of the
@@ -326,32 +327,31 @@ Market, Vignette and Interwoven.
 
 #### Projects:
 
-* In 2001, Michael planned, designed and implemented a content
-  management system based on Interwoven TeamSite, and integrated with
-  WebSphere CommerceSuite, for a major manufacturer of medical imaging
+* In 2001, I planned, designed and implemented a content management
+  system based on Interwoven TeamSite, and integrated with WebSphere
+  CommerceSuite, for a major manufacturer of medical imaging
   equipment. This on-going project involved requirements analysis and
-  macro design, micro design, implementation and deployment. Michael's
-  role included pre-sales, technical design and lead development
-  duties.
+  macro design, micro design, implementation and deployment. My role
+  included pre-sales, technical design and lead development duties.
 
-* In 2000, Michael worked with the world's premier financial market to
+* In 2000, I worked with the world's premier financial market to
   define requirements and project scope for web user registration and
-  personalisation system. For the same customer, Michael contributed
-  to the development of a prototype Java application for institutional
+  personalisation system. For the same customer, I contributed to the
+  development of a prototype Java application for institutional
   investors to track trading events and information.
 
 * Implementation of a Domino-based content management system for a
   major Spanish-language television network. This included development
   of complex Notes forms and views, Java agents, JavaScript libraries
-  and HTML. In 2000 IBM filed a patent application for Michael's
-  design of a system to allow end-user control of site navigation via
-  the Notes application.
+  and HTML. In 2000 IBM filed a patent application for my design of a
+  system to allow end-user control of site navigation via the Notes
+  application.
 
 ### _Consultant_  
 __PSR Software, Inc.__ (Atlanta, GA, USA)  
 March 1998 - November 1999
 
-Michael was employed by PSR to perform pre-sales marketing and
+I was employed by PSR to perform pre-sales marketing and
 demonstrations, post-sales implementation, project management,
 installation, training and support for the software products that PSR
 develops and distributes.
@@ -364,19 +364,17 @@ maintenance tasks for internal and external customers.
 
 * _JustWin Technologies_: JustWin is an Australian software vendor
   that markets a Lotus Domino-based production support system for the
-  apparel industry. Michael was responsible for pre-sales activities
-  such as consulting and demonstrations, and post-sales infrastructure
-  design, implementation and training. Implementation of the JustWin
-  system included gathering requirements from the system's users, and
-  working with the vendor to design and implement customisations as
-  required.
+  apparel industry. I was responsible for pre-sales activities such as
+  consulting and demonstrations, and post-sales infrastructure design,
+  implementation and training. Implementation of the JustWin system
+  included gathering requirements from the system's users, and working
+  with the vendor to design and implement customisations as required.
 
 * _Visual Impact_: PSR markets a Domino-based web query tool for
   relational databases, called Visual Impact. As well as providing
-  implementation and user support, Michael spent several months
-  updating and enhancing the product to streamline the user interface,
-  utilise new features provided by Domino R5, and ensure Year 2000
-  readiness.
+  implementation and user support, I spent several months updating and
+  enhancing the product to streamline the user interface, utilise new
+  features provided by Domino R5, and ensure Year 2000 readiness.
 
 * Write "cookbooks" on use of the DB2 LSX to access DB2 data from
   Notes and Domino applications.
@@ -404,19 +402,18 @@ March 1997 - March 1998
 
 #### Projects:
 
-* While at Software Spectrum, Michael planned for and designed an
-  enterprise Lotus Notes email infrastructure for a large department
-  of the Victorian State Government. This included developing
-  standards documents and administration guides, overseeing the
-  initial roll-out of the environment, and providing administrator and
-  user support. As a result of the new infrastructure, the Department
-  was able to consolidate multiple disparate email programs and
-  systems, integrate with the rest of the Victorian Government's Notes
-  systems and take advantage of Notes' calendaring and scheduling
-  capabilities.
+* While at Software Spectrum, I planned for and designed an enterprise
+  Lotus Notes email infrastructure for a large department of the
+  Victorian State Government. This included developing standards
+  documents and administration guides, overseeing the initial roll-out
+  of the environment, and providing administrator and user support. As
+  a result of the new infrastructure, the Department was able to
+  consolidate multiple disparate email programs and systems, integrate
+  with the rest of the Victorian Government's Notes systems and take
+  advantage of Notes' calendaring and scheduling capabilities.
 
-* In another project, Michael contributed as assistant project manager
-  for a project to implement Microsoft SMS for a major international
+* In another project, I contributed as assistant project manager for a
+  project to implement Microsoft SMS for a major international
   chemical company. This project involved working with the customer's
   project team to define application requirements and installation
   procedures, then building and testing SMS installation scripts to

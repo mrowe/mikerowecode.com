@@ -7,15 +7,14 @@ PO Box 4244
 Briar Hill, VIC 3088  
 Australia  
 
-Home Phone: +61 (0) 3 9461 4161  
-Mobile Phone: +61 (0) 412 477 661  
-Home Fax: +61 (0) 3 8677 1881  
+Phone: +61 (0) 412 477 661  
+Fax: +61 (0) 3 8677 1881  
 
 Skype: michaelarowe
 
 Email: <a href="mailto:mrowe@mojain.com">mrowe@mojain.com</a>  
-Blog: <a href="http://mikerowecode.com/">http://mikerowecode.com/</a>  
-
+Blog: <a href="http://mikerowecode.com/">mikerowecode.com</a>  
+LinkedIn: <a href="https://www.linkedin.com/in/michaelrowe/">linkedin.com/in/michaelrowe/</a>  
 
 ## Overview
 

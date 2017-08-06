@@ -301,7 +301,7 @@ __BearingPoint, Inc.__ (formerly KPMG Consulting) (Melbourne, VIC, Australia)
 January 2002 - January 2004
 
 I held the position of senior consultant in the Technology Integration
-Services practice of BearingPoint, Inc. He was responsible for and
+Services practice of BearingPoint, Inc. I was responsible for and
 involved in a wide range of consulting assignments covering design and
 implementation of complex information technology systems.
 

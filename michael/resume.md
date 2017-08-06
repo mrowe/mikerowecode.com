@@ -206,7 +206,7 @@ Michael was contracted to CGU Insurance (part of IAG) to work on a new
 programme of work to develop a framework and end user applications
 that provide a modern user interface to legacy policy management
 systems.
-        
+
 The initial project used J2EE application servers and a 3270
 screen scraping tool to deliver a browser-based end user application
 based on data managed by a legacy mainframe system.
@@ -232,7 +232,7 @@ involves performing technical quality assurance for projects developed
 by Post's external service providers. This includes document, design
 and code reviews, as well as general support and coordination of
 development, test and production environments.
-        
+
 Michael engages with external lead designers and developers and
 internal technical teams to provide specialist guidance, ensuring
 applications are designed, developed, tested, and deployed properly
@@ -255,11 +255,11 @@ Michael was contracted to Sensis Pty Ltd to work on an enterprise-wide
 integrated content management system. The work involved custom J2EE
 application development and integration using Tibco and Sun
 components.
-        
+
 Key challenges in this project included development of components for
 high performance XML data manipulation, and concurrent scheduling of
 inter-dependent work units.
-        
+
 Michael was engaged on various components of the system over the life
 of the project, including:
 
@@ -355,7 +355,7 @@ Michael was employed by PSR to perform pre-sales marketing and
 demonstrations, post-sales implementation, project management,
 installation, training and support for the software products that PSR
 develops and distributes.
-        
+
 Other duties included developing Domino-based e-commerce web sites for
 customers and performing ongoing Notes/Domino development and
 maintenance tasks for internal and external customers.

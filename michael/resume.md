@@ -43,7 +43,7 @@ Responsibilities:
  * Working with the relevant architecture and tech lead forums to
    ensure consistent and strategic architectural models are in place.
  * Building the architectural capability of delivery teams across REA Group by identifying, developing, and mentoring architectural talent in all teams globally.
- * Coaching, mentoring and supervising the Global Architecture team to ensure they have the skills, knowledge and support to perform in their role whilst recognizing their potential.
+ * Coaching, mentoring and supervising the Global Architecture team to ensure they have the skills, knowledge and support to perform in their role whilst recognising their potential.
 
 Key achievements:
 

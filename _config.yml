@@ -1,6 +1,6 @@
 markdown: kramdown
 lsi: true
-pygments: true
+highlighter: rouge
 permalink: /:year/:month/:title.html
 url: http://mikerowecode.com
 domain: mikerowecode.com

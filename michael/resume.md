@@ -25,7 +25,7 @@ I am an experienced professional software developer, architect and manager.
 ## Employment History
 
 
-###_Architecture Manager_
+### _Architecture Manager_
 __REA Group__ (Melbourne, VIC, Australia)  
 Feb 2017 - present
 
@@ -61,7 +61,7 @@ responsible for a number of "extra curricular" activities including:
  * Contributing to the IT Grad Programme steering committee.
 
 
-###_Senior Tech Lead_
+### _Senior Tech Lead_
 __REA Group__ (Melbourne, VIC, Australia)  
 Jan 2016 - Jan 2017
 
@@ -81,7 +81,7 @@ Responsibilities:
    team.
 
 
-###_Tech Lead_
+### _Tech Lead_
 __REA Group__ (Melbourne, VIC, Australia)  
 Dec 2012 - Dec 2015
 
@@ -112,7 +112,7 @@ Responsibilities:
  * Supporting production systems.
 
 
-###_Senior Developer_
+### _Senior Developer_
 __REA Group__ (Melbourne, VIC, Australia)  
 Jan 2011 - Dec 2011
 
@@ -120,6 +120,7 @@ I was employed as a senior developer on REA's mobile team,
 responsible for development and maintenance of REA's iPhone and iPad
 applications.
 
+### _Consultant_
 __Cogent Consulting__ (Melbourne, VIC, Australia)  
 April 2009 - Jan 2011
 
@@ -167,7 +168,7 @@ on Cogent's *Getting Things Done*&reg; product, [Runway][].
 [Runway]: http://www.runwayapp.com/
 [Zendesk]: http://www.zendesk.com/
 
-###_Senior Developer_
+### _Senior Developer_
 __Lonely Planet Publications__ (Footscray, VIC, Australia)  
 May 2008 - March 2009
 
@@ -181,18 +182,16 @@ contract, being responsible for the day to day management and
 technical output of five developers.
 
 
-###_Senior Developer_
+### _Senior Developer_
 __Fast Search & Transfer__ (Melbourne, VIC, Australia)  
 November 2007 - January 2008
 
-Michael was employed by FAST on a short-term contract to help with a major 
-release of their AdMomentum product.
+Michael was employed by FAST on a short-term contract to help with a major release of their AdMomentum product.
 
-Tasks included fixing bugs and adding features in both the struts-based web 
-front end and the stand-alone Java back end. 
+Tasks included fixing bugs and adding features in both the struts-based web front end and the stand-alone Java back end.
 
 
-###_Senior Developer_  
+### _Senior Developer_  
 __National Australia Bank__ (Melbourne, VIC, Australia)  
 January 2007 - November 2007
 
@@ -200,7 +199,7 @@ Michael was contracted to NAB as a senior developer in a large project
 team developing customer-facing J2EE systems.
 
 
-###_Senior Developer_  
+### _Senior Developer_  
 __CGU Insurance__ (Melbourne, VIC, Australia)  
 September 2006 - January 2007
 
@@ -225,7 +224,7 @@ based on data managed by a legacy mainframe system.
   unit testing, coverage reports and static analysis.
 
 
-###_Technical Analyst_  
+### _Technical Analyst_  
 __Australia Post__ (Melbourne, VIC, Australia)  
 November 2005 - August 2006
 
@@ -249,7 +248,7 @@ and in accordance with enterprise standards.
   module extended the BEA-provided OpenLDAP authenticator to allow
   editing of user and group properties.
 
-###_Senior Developer_  
+### _Senior Developer_  
 __Sensis Pty Ltd__ (Melbourne, VIC, Australia)  
 February 2004 - October 2005  
 
@@ -278,7 +277,7 @@ of the project, including:
 
 * Troubleshooting and resolving bugs in the end-user GUI application.
 
-###_Senior Consultant_  
+### _Senior Consultant_  
 __BearingPoint, Inc.__ (formerly KPMG Consulting) (Melbourne, VIC, Australia)  
 January 2002 - January 2004
 
@@ -310,14 +309,14 @@ design and implementation of complex information technology systems.
 * Design and develop a test log analysis toolkit in Perl to measure
   and report on the results of middleware interface testing.
 
-###_Senior IT Specialist_ (Solution Architect)  
+### _Senior IT Specialist_ (Solution Architect)  
 __IBM Global Services__ (Atlanta, GA, USA)  
 November 1999 - December 2001
 
 Michael was employed as a Solution Architect within IBM's <strong
 class="emphasis">Center for E-Business Innovation</strong>, primarily
 as part of the content management/e-publishing team.
-        
+
 Michael's duties at IBM included: designing and developing web-based
 (Internet and intranet) publishing, content management and portal
 solutions for IBM's customers; managing small to medium development
@@ -349,7 +348,7 @@ Market, Vignette and Interwoven.
   design of a system to allow end-user control of site navigation via
   the Notes application.
 
-###_Consultant_  
+### _Consultant_  
 __PSR Software, Inc.__ (Atlanta, GA, USA)  
 March 1998 - November 1999
 
@@ -386,7 +385,7 @@ maintenance tasks for internal and external customers.
 * Update existing Notes applications to ensure Year 2000 readiness.
 
 
-###_Senior Consultant_  
+### _Senior Consultant_  
 __Software Spectrum Inc.__ (Melbourne, VIC, Australia)  
 March 1997 - March 1998
 
@@ -425,7 +424,7 @@ March 1997 - March 1998
   support these requirements.
 
 
-###_Systems Engineer, Senior Systems Engineer_  
+### _Systems Engineer, Senior Systems Engineer_  
 __Business Computers of Australia__ (Melbourne, VIC, Australia)  
 May 1993 - February 1997
 

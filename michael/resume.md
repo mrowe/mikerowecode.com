@@ -17,35 +17,108 @@ Email: <a href="mailto:mrowe@mojain.com">mrowe@mojain.com</a>
 Blog: <a href="http://mikerowecode.com/">http://mikerowecode.com/</a>  
 
 
-## Professional Objective
+## Overview
 
-To be an expert software developer. To share my expertise by mentoring
-junior developers and publishing articles and books.
+I am an experienced professional software developer, architect and manager.
 
 
 ## Employment History
 
 
+###_Architecture Manager_
+__REA Group__ (Melbourne, VIC, Australia)  
+Feb 2017 - present
+
+I am currently leading a team of developers, tech leads and
+architects who are responsible for providing architectural leadership,
+consulting and support to product delivery teams in REA Group
+globally.
+
+Responsibilities:
+
+ * Leading the overall technical architecture strategy for REA Group in collaboration with other senior technical leaders.
+ * Using team resources, expertise and current industry insights to shape the vision, goals, and measures of success for the Architecture function within REA Group.
+ * Acting as an evangelist for the role of Architecture within REA Group, building support for the function and its team members among internal Lines of Business.
+ * Working with other functional leaders to understand current issues and strategic opportunities as well as managing their expectations.
+ * Working with the relevant architecture and tech lead forums to
+   ensure consistent and strategic architectural models are in place.
+ * Building the architectural capability of delivery teams across REA Group by identifying, developing, and mentoring architectural talent in all teams globally.
+ * Coaching, mentoring and supervising the Global Architecture team to ensure they have the skills, knowledge and support to perform in their role whilst recognizing their potential.
+
+Key achievements:
+
+ * Redefined the engagement model for the Group Architecture team, in consultation with stakeholders across the business including Tech Leads, Engineering Managers, Product Managers and the Chief Engineer.
+ * Implemented planning and governance processes to improve the effectiveness of the team's engagements with line of business teams.
+ * Drove the establishment of a "global architecture forum" comprised of technical leaders from across REA's global businesses.
+
+Throughout my time at REA I have also initiated, driven and been
+responsible for a number of "extra curricular" activities including:
+
+ * Editing and curating the public REA engineering blog (http://rea.tech/).
+ * Mentoring and coaching grads and junior developers.
+ * Facilitating a cross-disciplinary group focussed on REA's tech community outreach programmes.
+ * Promoting and supporting the community of internal "guilds" of practice.
+ * Contributing to the IT Grad Programme steering committee.
+
+
+###_Senior Tech Lead_
+__REA Group__ (Melbourne, VIC, Australia)  
+Jan 2016 - Jan 2017
+
+Responsibilities:
+
+ * Leading the overall technical direction for REA in collaboration
+   with other senior technical leaders.
+ * Providing technical direction to my team.
+ * Working with stakeholders to design high quality solutions that
+   meet the needs of our users.
+ * Leading the implementation of architecturally complex projects of
+   global significance.
+ * Maintaining existing products, including bug fixes and “Business As
+   Usual” feature enhancements.
+ * Contributing to the REA knowledge base through blog posts,
+   brown-bags sessions and coaching less experienced members of the
+   team.
+
+
 ###_Tech Lead_
 __REA Group__ (Melbourne, VIC, Australia)  
-Dec 2012 - present
+Dec 2012 - Dec 2015
 
 The consumer-facing web application that powers [realestate.com.au][1] is
 backed by provisioning, messaging and search systems that have evolved
-over several years. Michael leads a small team of engineers with
+over several years. I lead a small team of engineers with
 responsibility for the long-term architectural direction of these
 systems, and for undertaking project work in cooperation with
 line-of-business teams to implement technical improvements.
 
 [1]: http://realestate.com.au/
 
+In addition to product delivery projects, I managed and maintained
+some key internal infrastructure products including Atlassian Bamboo
+and GitHub Enterprise, including vendor relationships and contract
+negotiation.
+
+Responsibilities:
+
+ * Contributing to the overall technical direction for REA in
+   collaboration with other senior technical leaders.
+ * Providing technical direction to my teams.
+ * Working with stakeholders to design high quality solutions that
+   meet the needs of our users.
+ * Leading engineering teams in the implementation of major products.
+ * Maintaining existing products, including bug fixes and “Business As
+   Usual” feature enhancements.
+ * Supporting production systems.
+
+
 ###_Senior Developer_
 __REA Group__ (Melbourne, VIC, Australia)  
 Jan 2011 - Dec 2011
 
-Michael was currently employed as a senior developer on REA's mobile
-team, responsible for development and maintenance of REA's iPhone and
-iPad applications.
+I was employed as a senior developer on REA's mobile team,
+responsible for development and maintenance of REA's iPhone and iPad
+applications.
 
 __Cogent Consulting__ (Melbourne, VIC, Australia)  
 April 2009 - Jan 2011

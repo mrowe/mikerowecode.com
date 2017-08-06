@@ -35,28 +35,47 @@ globally.
 
 Responsibilities:
 
- * Leading the overall technical architecture strategy for REA Group in collaboration with other senior technical leaders.
- * Using team resources, expertise and current industry insights to shape the vision, goals, and measures of success for the Architecture function within REA Group.
- * Acting as an evangelist for the role of Architecture within REA Group, building support for the function and its team members among internal Lines of Business.
- * Working with other functional leaders to understand current issues and strategic opportunities as well as managing their expectations.
+ * Leading the overall technical architecture strategy for REA Group
+   in collaboration with other senior technical leaders.
+ * Using team resources, expertise and current industry insights to
+   shape the vision, goals, and measures of success for the
+   Architecture function within REA Group.
+ * Acting as an evangelist for the role of Architecture within REA
+   Group, building support for the function and its team members among
+   internal Lines of Business.
+ * Working with other functional leaders to understand current issues
+   and strategic opportunities as well as managing their expectations.
  * Working with the relevant architecture and tech lead forums to
    ensure consistent and strategic architectural models are in place.
- * Building the architectural capability of delivery teams across REA Group by identifying, developing, and mentoring architectural talent in all teams globally.
- * Coaching, mentoring and supervising the Global Architecture team to ensure they have the skills, knowledge and support to perform in their role whilst recognising their potential.
+ * Building the architectural capability of delivery teams across REA
+   Group by identifying, developing, and mentoring architectural
+   talent in all teams globally.
+ * Coaching, mentoring and supervising the Global Architecture team to
+   ensure they have the skills, knowledge and support to perform in
+   their role whilst recognising their potential.
 
 Key achievements:
 
- * Redefined the engagement model for the Group Architecture team, in consultation with stakeholders across the business including Tech Leads, Engineering Managers, Product Managers and the Chief Engineer.
- * Implemented planning and governance processes to improve the effectiveness of the team's engagements with line of business teams.
- * Drove the establishment of a "global architecture forum" comprised of technical leaders from across REA's global businesses.
+ * Redefined the engagement model for the Group Architecture team, in
+   consultation with stakeholders across the business including Tech
+   Leads, Engineering Managers, Product Managers and the Chief
+   Engineer.
+ * Implemented planning and governance processes to improve the
+   effectiveness of the team's engagements with line of business
+   teams.
+ * Drove the establishment of a "global architecture forum" comprised
+   of technical leaders from across REA's global businesses.
 
 Throughout my time at REA I have also initiated, driven and been
 responsible for a number of "extra curricular" activities including:
 
- * Editing and curating the public REA engineering blog (http://rea.tech/).
+ * Editing and curating the public REA engineering blog
+   (http://rea.tech/).
  * Mentoring and coaching grads and junior developers.
- * Facilitating a cross-disciplinary group focussed on REA's tech community outreach programmes.
- * Promoting and supporting the community of internal "guilds" of practice.
+ * Facilitating a cross-disciplinary group focussed on REA's tech
+   community outreach programmes.
+ * Promoting and supporting the community of internal "guilds" of
+   practice.
  * Contributing to the IT Grad Programme steering committee.
 
 

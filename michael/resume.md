@@ -65,6 +65,8 @@ Key achievements:
    teams.
  * Drove the establishment of a "global architecture forum" comprised
    of technical leaders from across REA's global businesses.
+ * Led the Tech Lead Guild, the internal "community of practice" and
+   focus of profressional development for REA's technical leadership.
 
 Throughout my time at REA I have also initiated, driven and been
 responsible for a number of "extra curricular" activities including:

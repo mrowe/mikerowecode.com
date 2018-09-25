@@ -23,6 +23,67 @@ I am an experienced professional software developer, architect, and manager.
 
 ## Employment History
 
+### _Delivery Manager_
+__REA Group__ (Melbourne, VIC, Australia)  
+Jan 2017 - present
+
+In this role I have delivery and technical accountability for the
+technology teams in the _Leads & Branding_ tribe. We are building the
+next generation of digital marketing and advertising tools for REA's
+customers. To aid with the pace and focus of this new set of products,
+the team is set up as a "startup"--expected to deploy often and learn
+quickly--but with the support and backing of an ASX100 enterprise.
+
+I am responsible for building a productive and effective engineering
+team to support the product and business goals of the Tribe. Each
+squad is comprised of an _Engineering Lead_ and 5-6 developers, plus a
+product manager and UX designer.
+
+Responsibilities:
+
+ * Leadership of a team of ~20 technologists to motivate, develop
+   careers, inspire best work, and support the day-to-day success of
+   this team.
+ * Support the engineering leads in the team to become great people
+   leaders, and develop succession plans for these roles and your own.
+ * Drive the productive and successful delivery of software products,
+   ensuring the engineering team are aligned to organisational and
+   business unit goals in delivering high-quality and cost-effective
+   solutions.
+ * In close partnership with the Head of Product for Leads, drive
+   successful output across the teams, ensuring optimal and timely
+   outcomes for Leads.
+ * Provide clear technical strategy and make key architectural
+   decisions to ensure successful design and implementation of
+   software and infrastructure that align with business unit and REA
+   Group goals.
+ * Manage the operational budget, optimising and evolving spend to
+   maximise return on investment.
+ * Champion lean and iterative software development practices within
+   the tribe and across the organisation and continuously improve on
+   existing development methods.
+ * Manage, negotiate, and execute on any consultancy services or
+   third-party systems.
+ * Develop strong working relationships with technology leaders in
+   other business units, and take accountability for any technical
+   inter-dependencies and integration points.
+ * Assist with the inception of large new pieces of work, supporting
+   your engineering leads with architectural decisions, estimation,
+   and managing dependencies with other business units.
+ * Foster an environment of learning, openness and honesty.
+
+Key achievements:
+
+ * Grew the team from 12 to 20 software developers over six months
+   while managing the staggered roll-off of external contractors to
+   mininise disruption to the teams.
+ * Coached and developed three senior engineers into new team
+   lead roles.
+ * Set up structures and processes to support the new managers,
+   including setting KPIs and development plans for all team members.
+ * Worked with senior stakeholders to establish a culture of
+   collaboration between engineering, product, and design teams.
+
 
 ### _Architecture Manager_
 __REA Group__ (Melbourne, VIC, Australia)  

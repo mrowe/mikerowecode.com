@@ -18,7 +18,7 @@ LinkedIn: <a href="https://www.linkedin.com/in/michaelrowe/">linkedin.com/in/mic
 
 ## Overview
 
-I am an experienced professional software developer, architect and manager.
+I am an experienced professional software developer, architect, and manager.
 
 
 ## Employment History

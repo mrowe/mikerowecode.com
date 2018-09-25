@@ -25,7 +25,7 @@ I am an experienced professional software developer, architect, and manager.
 
 ### _Delivery Manager_
 __REA Group__ (Melbourne, VIC, Australia)  
-Jan 2017 - present
+Jan 2018 - present
 
 In this role I have delivery and technical accountability for the
 technology teams in the _Leads & Branding_ tribe. We are building the

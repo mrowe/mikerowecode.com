@@ -45,7 +45,7 @@ Responsibilities:
    careers, inspire best work, and support the day-to-day success of
    this team.
  * Support the engineering leads in the team to become great people
-   leaders, and develop succession plans for these roles and your own.
+   leaders, and develop succession plans for these roles and my own.
  * Drive the productive and successful delivery of software products,
    ensuring the engineering team are aligned to organisational and
    business unit goals in delivering high-quality and cost-effective
@@ -89,7 +89,7 @@ Key achievements:
 __REA Group__ (Melbourne, VIC, Australia)  
 Feb 2017 - Dec 2017
 
-In this role I lead a team of developers, tech leads and architects
+In this role I led a team of developers, tech leads and architects
 who are responsible for providing architectural leadership, consulting
 and support to product delivery teams in REA Group globally.
 
@@ -129,7 +129,8 @@ Key achievements:
    focus of profressional development for REA's technical leadership.
 
 Throughout my time at REA I have also initiated, driven and been
-responsible for a number of "extra curricular" activities including:
+responsible for a number of additional responsibilities not specific
+to my role including:
 
  * Editing and curating the public REA engineering blog
    (http://rea.tech/).

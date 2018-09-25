@@ -26,12 +26,11 @@ I am an experienced professional software developer, architect, and manager.
 
 ### _Architecture Manager_
 __REA Group__ (Melbourne, VIC, Australia)  
-Feb 2017 - present
+Feb 2017 - Dec 2017
 
-I am currently leading a team of developers, tech leads and
-architects who are responsible for providing architectural leadership,
-consulting and support to product delivery teams in REA Group
-globally.
+In this role I lead a team of developers, tech leads and architects
+who are responsible for providing architectural leadership, consulting
+and support to product delivery teams in REA Group globally.
 
 Responsibilities:
 

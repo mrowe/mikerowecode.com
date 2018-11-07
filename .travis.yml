@@ -2,6 +2,8 @@ language: go
 install:
   - go get -u -v github.com/gohugoio/hugo
 script:
+  - git submodule init
+  - git submodule update
   - hugo
   - python --version
   - sudo pip install s3cmd

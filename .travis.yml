@@ -1,0 +1,11 @@
+language: go
+install:
+  - go get -u -v github.com/gohugoio/hugo
+script:
+  - hugo
+  - python --version
+  - sudo pip install s3cmd
+  - s3cmd --region=ap-southeast-2 sync --delete-removed -P --guess-mime-type --no-mime-magic -r public/ s3://mikerowecode.com/
+notifications:
+    email:
+        on_failure: always

@@ -1,0 +1,11 @@
+baseURL = "https://mikerowecode.com/"
+languageCode = "en-au"
+title = "mikerowecode"
+theme = "tale"
+
+[params]
+  Author = "Michael Rowe"
+  GitHubUser = "mrowe"
+
+[permalinks]
+  post = "/:year/:month/:title.html"

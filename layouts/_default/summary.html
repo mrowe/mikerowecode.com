@@ -1,0 +1,9 @@
+
+    <div>
+        <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
+        <h1 class="catalogue-title"><a href="{{ .Permalink }}" class="catalogue-item">{{ htmlUnescape .Title }}</a></h1>
+        {{ if isset .Params "summary" }}{{ .Params.Summary }}{{ else }}{{ .Content }}{{ end }}
+
+    </div>
+    <div class="catalogue-line"></div>
+

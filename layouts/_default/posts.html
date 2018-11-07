@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<main>
+  <h2>Archives</h2>
+  <div id="archives">
+    {{ range (.Pages.GroupByDate "2006") }}
+      <h2>{{ .Key }}</h2>
+      <ul>
+        {{ range .Pages }}
+          <li><a href="{{ .Permalink }}" class="catalogue-item">{{ htmlUnescape .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+
+</main>
+{{ end }}
+

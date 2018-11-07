@@ -14,7 +14,7 @@ You can contact me <a href="mailto:mrowe@mojain.com">by email</a>, or
 follow my <a href="http://twitter.com/mrowe">Twitter feed</a> if
 you're so inclined.
 
-Old posts are <a href="/archive.html">archived here</a>.
+Old posts are <a href="{{<ref "posts" >}}">archived here</a>.
 
 Made with _Hugo_ using a lightly modified version of the <a
 href="https://github.com/EmielH/tale-hugo/">Tale</a> theme.

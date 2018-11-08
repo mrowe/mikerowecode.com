@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mrowe/mrowe.github.com.svg?branch=hugo)](https://travis-ci.org/mrowe/mrowe.github.com)
+[![Build Status](https://travis-ci.org/mrowe/mrowe.github.com.svg)](https://travis-ci.org/mrowe/mrowe.github.com)
 
 # mikerowecode.com
 

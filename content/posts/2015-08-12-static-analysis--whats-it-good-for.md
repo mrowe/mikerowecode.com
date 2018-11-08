@@ -2,6 +2,7 @@
 layout: post
 title: Static Analysis&mdash;what's it good for?
 date: "2015-08-12"
+slug: "static-analysis-whats-it-good-for"
 url: "/2015/08/static-analysis--whats-it-good-for.html"
 ---
 

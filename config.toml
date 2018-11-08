@@ -1,0 +1,14 @@
+baseURL = "https://mikerowecode.com/"
+languageCode = "en-au"
+title = "mikerowecode"
+theme = "tale"
+
+# for some of the older articles...
+disablePathToLower = true
+
+[params]
+  Author = "Michael Rowe"
+  GitHubUser = "mrowe"
+
+[permalinks]
+  posts = "/:year/:month/:slug"

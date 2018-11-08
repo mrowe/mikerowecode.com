@@ -7,4 +7,4 @@ website [mikerowecode.com](https://mikerowecode.com). It is generated
 statically using [Hugo][] and the [Tale][] theme.
 
 [Hugo]: http://gohugo.io/
-[universal]: https://github.com/EmielH/tale-hugo/
+[Tale]: https://github.com/EmielH/tale-hugo/

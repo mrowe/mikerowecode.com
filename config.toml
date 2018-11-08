@@ -8,4 +8,4 @@ theme = "tale"
   GitHubUser = "mrowe"
 
 [permalinks]
-  post = "/:year/:month/:title.html"
+  posts = "/:year/:month/:slug"

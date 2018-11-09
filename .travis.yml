@@ -7,6 +7,9 @@ addons:
 
 install:
   - sudo pip install s3cmd
+  
+ tags: 
+  - do_not_delete
 
 script:
   - hugo --minify --verbose

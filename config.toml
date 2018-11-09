@@ -2,6 +2,7 @@ baseURL = "https://mikerowecode.com/"
 languageCode = "en-au"
 title = "mikerowecode"
 theme = "tale"
+googleAnalytics = "UA-6154615-1"
 
 # for some of the older articles...
 disablePathToLower = true

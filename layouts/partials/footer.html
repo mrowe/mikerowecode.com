@@ -3,3 +3,5 @@
       &copy; 2003-<time datetime="{{ now }}">{{ now.Format "2006" }}</time> {{ .Site.Author.name }} unless otherwise noted. All rights reserved.
     </span>
   </footer>
+
+{{ template "_internal/google_analytics_async.html" . }}

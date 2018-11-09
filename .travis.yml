@@ -1,6 +1,6 @@
 language: go
 install:
-  - go get -u -v github.com/gohugoio/hugo
+  - snap install hugo --channel=extended
 script:
   - hugo version
   - hugo --minify --verbose

@@ -6,8 +6,10 @@ theme = "tale"
 # for some of the older articles...
 disablePathToLower = true
 
+[Author]
+  name = "Michael Rowe"
+
 [params]
-  Author = "Michael Rowe"
   GitHubUser = "mrowe"
 
 [permalinks]

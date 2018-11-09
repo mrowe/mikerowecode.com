@@ -1,6 +1,6 @@
 language: go
 install:
-  - snap install hugo --channel=extended
+  - sudo apt-get install hugo
 script:
   - hugo version
   - hugo --minify --verbose

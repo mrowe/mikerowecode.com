@@ -1,7 +1,11 @@
 language: go
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_extended_0.51_Linux-64bit.tar.gz
-  - tar xzf hugo_extended_0.51_Linux-64bit.tar.gz
+  - mkdir $HOME/src
+  - cd $HOME/src
+  - git clone https://github.com/gohugoio/hugo.git
+  - cd hugo
+  - git checkout tags/v0.51
+  - go install --tags extended
 script:
   - ./hugo --minify --verbose
   - sudo pip install s3cmd

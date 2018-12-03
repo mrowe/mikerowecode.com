@@ -19,7 +19,11 @@ LinkedIn: <a href="https://www.linkedin.com/in/michaelrowe/">linkedin.com/in/mic
 
 ## Overview
 
-I am an experienced professional software developer, architect, and manager.
+I am an experienced professional software developer, architect, and
+manager familiar with working in fast-passed agile environments. I
+have a strong focus on people--coaching, mentoring, and creating the
+conditions that allow them to be their most effective.
+
 
 
 ## Employment History

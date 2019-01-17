@@ -32,16 +32,17 @@ conditions that allow them to be their most effective.
 
 ### _Delivery Manager_
 __REA Group__ (Melbourne, VIC, Australia)  
-Jan 2018 - present
+Jan 2018 - Oct 2018
 
-In this role I have delivery and technical accountability for the
-technology teams in the _Leads & Branding_ tribe. We are building the
-next generation of digital marketing and advertising tools for REA's
-customers. To aid with the pace and focus of this new set of products,
-the team is set up as a "startup"--expected to deploy often and learn
-quickly--but with the support and backing of an ASX100 enterprise.
+In this role I had delivery and technical accountability for the
+technology teams in the _Leads & Branding_ tribe. The team is building
+the next generation of digital marketing and advertising tools for
+REA's customers. To aid with the pace and focus of this new set of
+products, the team is set up as a "startup"--expected to deploy often
+and learn quickly--but with the support and backing of an ASX100
+enterprise.
 
-I am responsible for building a productive and effective engineering
+I was responsible for building a productive and effective engineering
 team to support the product and business goals of the Tribe. Each
 squad is comprised of an _Engineering Lead_ and 5-6 developers, plus a
 product manager and UX designer.

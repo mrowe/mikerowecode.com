@@ -21,7 +21,7 @@ GitHub: <a href="https://github.com/mrowe">https://github.com/mrowe</a>
 
 ## Overview
 
-I am an experienced professional software developer, architect, and
+I am an experienced professional software developer, architect and
 manager familiar with working in fast-passed agile environments. I
 have a strong focus on people--coaching, mentoring, and creating the
 conditions that allow them to be their most effective.

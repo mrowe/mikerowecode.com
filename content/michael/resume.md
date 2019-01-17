@@ -126,6 +126,8 @@ to my role including:
 
  * Editing and curating the public REA engineering blog
    (http://rea.tech/).
+ * Coordinating and curating REA's public contributions to open source
+   tools and libraries (http://realestate-com-au.github.io).
  * Mentoring and coaching grads and junior developers.
  * Facilitating a cross-disciplinary group focussed on REA's tech
    community outreach programmes.

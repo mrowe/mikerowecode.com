@@ -16,6 +16,8 @@ Skype: michaelarowe
 Email: <a href="mailto:mrowe@mojain.com">mrowe@mojain.com</a>  
 Blog: <a href="http://mikerowecode.com/">mikerowecode.com</a>  
 LinkedIn: <a href="https://www.linkedin.com/in/michaelrowe/">linkedin.com/in/michaelrowe/</a>  
+GitHub: <a href="https://github.com/mrowe">https://github.com/mrowe</a>  
+
 
 ## Overview
 

@@ -2,8 +2,7 @@
 
 # mikerowecode.com
 
-This is the source for the
-website [mikerowecode.com](https://mikerowecode.com). It is generated
+This is the source for the website [mikerowecode.com](https://mikerowecode.com). It is generated
 statically using [Hugo][] and the [Tale][] theme.
 
 [Hugo]: http://gohugo.io/

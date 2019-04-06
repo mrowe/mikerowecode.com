@@ -1,13 +1,14 @@
 baseURL = "https://mikerowecode.com/"
 languageCode = "en-au"
 title = "mikerowecode"
+copyright = "© 2003-2019 Michael Rowe unless otherwise noted. All rights reserved."
 theme = "tale"
 googleAnalytics = "UA-6154615-1"
 
 # for some of the older articles...
 disablePathToLower = true
 
-[Author]
+[author]
   name = "Michael Rowe"
 
 [params]

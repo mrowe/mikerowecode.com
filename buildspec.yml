@@ -1,0 +1,23 @@
+version: 0.1
+
+environment_variables:
+  plaintext:
+    AWS_DEFAULT_REGION: "ap-southeast-2"
+    HUGO_VERSION: "0.54"
+    HUGO_SHA256: "76f90287c12a682c9137b85146c406be410b2b30b0df7367f02ee7c4142bb416"
+
+phases:
+  install:
+    commands:
+      - curl -Ls https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz
+      - echo "${HUGO_SHA256}  /tmp/hugo.tar.gz" | sha256sum -c -
+      - tar xf /tmp/hugo.tar.gz -C /tmp
+      - mv /tmp/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/bin/hugo
+      - rm -rf /tmp/hugo*
+
+  build:
+    commands:
+      - hugo --minify --verbose
+  post_build:
+    commands:
+    - aws s3 sync --region=ap-southeast-2 sync --delete --guess-mime-type --no-mime-magic public s3://mikerowecode.com/ --cache-control max-age=3600

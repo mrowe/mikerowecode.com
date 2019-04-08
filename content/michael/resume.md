@@ -30,6 +30,11 @@ conditions that allow them to be their most effective.
 
 ## Employment History
 
+### _Principal Software Engineer_
+__Suncorp Group__ (Melbourne, VIC, Australia)  
+Feb 2019 - 
+
+
 ### _Delivery Manager_
 __REA Group__ (Melbourne, VIC, Australia)  
 Jan 2018 - Oct 2018

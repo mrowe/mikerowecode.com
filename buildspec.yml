@@ -17,6 +17,8 @@ phases:
 
   build:
     commands:
+      - cat assets/scss/tale.scss
+      - cat assets/scss/local.scss
       - hugo --minify --verbose --cleanDestinationDir
 
   post_build:

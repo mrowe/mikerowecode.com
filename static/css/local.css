@@ -1,0 +1,22 @@
+.catalogue {
+    padding-top:2em
+}
+.catalogue-item {
+    padding:0
+}
+.catalogue-title {
+    margin-bottom:0
+}
+.catalogue-line {
+    margin-top:6em;
+    width:6em
+}
+
+h2 {
+    margin-top: 1.2em;
+    margin-bottom: 0;
+}
+
+.post p {
+    text-align: left;
+}

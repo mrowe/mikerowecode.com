@@ -16,7 +16,7 @@ ratings from public endpoints.
 As it turns out, Apple provide a "real" API for this:
 
 ```
-    $ curl -s https://itunes.apple.com/au/lookup?id=<my-app-id> | jq .results[].averageUserRating
+$ curl -s https://itunes.apple.com/au/lookup?id=<my-app-id> | jq .results[].averageUserRating
 ```
 
 
@@ -44,7 +44,7 @@ _appears_ to be wrapped in a `div` tag with a distinct `aria-label`
 attribute value:
 
 ```
-    <div class="BHMmbe" aria-label="Rated 3.5 stars out of five stars">3.5</div>
+<div class="BHMmbe" aria-label="Rated 3.5 stars out of five stars">3.5</div>
 ```
 
 We can use this fact, and the fact the page is well
@@ -52,8 +52,8 @@ formatted/validated HTML, to apply an XPath query to extract the
 rating:
 
 ```
-    $ curl -s 'https://play.google.com/store/apps/details?id=<my-app-id>&hl=en' | \
-          xmllint --nowarning --html --xpath '//div[starts-with(@aria-label, "Rated")]/text()' - 2>/dev/null
+$ curl -s 'https://play.google.com/store/apps/details?id=<my-app-id>&hl=en' | \
+      xmllint --nowarning --html --xpath '//div[starts-with(@aria-label, "Rated")]/text()' - 2>/dev/null
 ```
     
 **EVEN BIGGER FATTER CAVEAT**: this is super fragile and makes all sorts of
@@ -66,7 +66,7 @@ etc.
 We can put all that together in a bit of Python that can be run as a
 scheduled job, and maybe ship its logs to Splunk for later analysis:
 
-{{< highlight py >}}
+```python
 #!/usr/bin/env python
 
 import sys, urllib, json, logging
@@ -98,14 +98,14 @@ if __name__ == '__main__':
     logger = setup_custom_logger("get-app-ratings.py")
     logger.info("apple_store_rating=%s" % get_itunes_rating(apple_app_id))
     logger.info("google_store_rating=%s" % get_google_play_rating(google_app_id))
-{{< /highlight >}}
+```
 
 which produces output like:
 
 ```
-    $ ./get-app-ratings.py
-    2019-04-08 17:19:57 [INFO] ./get-app-ratings.py apple_store_rating=3.5
-    2019-04-08 17:19:58 [INFO] ./get-app-ratings.py google_store_rating=3.5
+$ ./get-app-ratings.py
+2019-04-08 17:19:57 [INFO] ./get-app-ratings.py apple_store_rating=3.5
+2019-04-08 17:19:58 [INFO] ./get-app-ratings.py google_store_rating=3.5
 ```
 
 Getting that stdout output into Splunk is left as an exercise for the

@@ -8,6 +8,12 @@ googleAnalytics = "UA-6154615-1"
 # for some of the older articles...
 disablePathToLower = true
 
+# configure code syntax highlighting
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "emacs"
+# pygmentsOptions = "linenos=true"
+
 [Params]
   css = ["/css/local.css"]
 

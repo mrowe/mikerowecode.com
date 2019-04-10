@@ -88,7 +88,7 @@ curl -s \
      -k \
      "${SPLUNK_HOST}/servicesNS/${DASHBOARD_AUTHOR}/${DASHBOARD_APP}/data/ui/views/${DASHBOARD_NAME}?output_mode=json" \
     | jq --raw-output '.entry[].content | .["eai:data"]' \
-    | xmllint - --pretty
+    | xmllint --format -
 {{< / highlight >}}
 
 We call the script like this:

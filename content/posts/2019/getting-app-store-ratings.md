@@ -86,13 +86,21 @@ def setup_custom_logger(name):
 
 def get_itunes_rating(app_id):
     response = urllib.urlopen("https://itunes.apple.com/au/lookup?id=%s" % app_id)
-    data = json.load(response)
-    return data["results"][0]["averageUserRating"]
+    try:
+        data = json.loads(response)
+        return data["results"][0]["averageUserRating"]
+    except (TypeError, ValueError, KeyError, IndexError):
+        logger.warn("Response did not contain expected JSON: %s" % response)
+        return ""
 
 def get_google_play_rating(app_id):
     response = urllib.urlopen("https://play.google.com/store/apps/details?id=%s&hl=en" % app_id)
-    tree = etree.HTML(response.read())
-    return tree.xpath("//div[starts-with(@aria-label, \"Rated\")]/text()")[0]
+    try:
+        data = etree.HTML(response)
+        return data.xpath("//div[starts-with(@aria-label, \"Rated\")]/text()")[0]
+    except (ValueError, IndexError):
+        logger.warn("Response did not contain expected XML: %s" % response)
+        return ""
 
 if __name__ == '__main__':
     logger = setup_custom_logger("get-app-ratings.py")

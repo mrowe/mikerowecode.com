@@ -1,7 +1,6 @@
 ---
 title: "Managing a Splunk Dashboard in Git"
 date: 2019-04-23T19:09:21+10:00
-draft: true
 ---
 
 Splunk dashboards are great! There's all sorts of useful insight you can gain from your system logs, and graphing them in convenient information "radiators" makes these insights more visible to your team. They do involve a lot of pointing-and-clicking though, and it makes me pretty nervous that all that fiddly work is sitting unmanaged in a web UI.

@@ -4,7 +4,7 @@ date: 2019-04-23T19:09:21+10:00
 draft: true
 ---
 
-Splunk dashboards are great! There's all sorts of useful insight you can gain for your system logs, and graphing them in convenient information "radiators" makes these insights more visible to your team. They do involve a lot of pointing-and-clicking though, and it makes me pretty nervous that all that fiddly work is sitting unmanaged in a web UI.
+Splunk dashboards are great! There's all sorts of useful insight you can gain from your system logs, and graphing them in convenient information "radiators" makes these insights more visible to your team. They do involve a lot of pointing-and-clicking though, and it makes me pretty nervous that all that fiddly work is sitting unmanaged in a web UI.
 
 Luckily, you don't have to live that way. Splunk provides a comprehensive REST API for many search- and data-related actions. It's kind of buried in the [documentation][] under "Knowledge", but the API contains an endpoint that allows you to GET and POST the XML definition of a dashboard:
 

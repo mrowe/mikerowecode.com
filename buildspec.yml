@@ -18,8 +18,10 @@ phases:
   build:
     commands:
       - hugo --minify --verbose --cleanDestinationDir
+      - hugo --verbose --cleanDestinationDir --baseURL="https://mikerowecode.com/_preview" --buildDrafts --buildFuture --destination="preview"
 
   post_build:
     commands:
       - aws s3 sync --region=ap-southeast-2 --acl public-read --delete public s3://mikerowecode.com/ --cache-control max-age=3600
       - aws cloudfront create-invalidation --distribution-id E2FYGAIY8T5RST --paths /index.html /index.xml
+      - aws s3 sync --region=ap-southeast-2 --acl public-read --delete preview s3://mikerowecode.com/_preview/ --cache-control max-age=3600

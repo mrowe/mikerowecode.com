@@ -30,9 +30,42 @@ conditions that allow them to be their most effective.
 
 ## Employment History
 
-### _Principal Software Engineer_
+### _Delivery Manager - Reliability Engineering_
 __Suncorp Group__ (Melbourne, VIC, Australia)  
 Feb 2019 - 
+
+The purpose of this role is to design, implement and manage a
+Reliability Engineering function for Suncorp's Digital Technology
+business unit. I work with delivery teams across Suncorp's banking and
+insurance brands to foster and promote an "SRE mindset" towards
+operating reliable customer facing applications.
+
+The role also involes hands on development and implementation of
+systems and dashboards to measure and present key aspects of
+application performance and reliability to teams and business
+stakeholders.
+
+Responsibilities:
+
+ * Review, identify and create proposals for technology improvements
+   that enhance system reliability, resilience or measurement.
+ * Define, collect and measure system performance metrics that
+   objectively define system reliability.
+ * Work closely with delivery teams to deliver enhancements that help
+   scale systems and improve reliability to meet agreed reliability
+   targets.
+ * Work closely with delivery teams to transition towards low or no
+   touch change management practices in order to increase velocity.
+ * Consult with teams on reliability and resilience issues.
+ * Proactively provide technical leadership in Software Engineering,
+   DevOps and Architecture issues.
+ * Attract, coach, and manage a distributed team.
+
+Technologies:
+
+ * Java, Spring Boot, Python
+ * Splunk, ELK (Elasticsearch, Logstash, Kibana), Grafana, Prometheus
+ * AWS, Kubernetes, OpenShift
 
 
 ### _Delivery Manager_

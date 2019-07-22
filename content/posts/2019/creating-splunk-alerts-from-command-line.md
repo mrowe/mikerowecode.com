@@ -1,7 +1,6 @@
 ---
 title: "Creating Splunk Alerts (aka 'Saved Searches') from the command line"
 date: 2019-07-22T17:24:13+10:00
-draft: true
 ---
 
 

@@ -30,9 +30,9 @@ conditions that allow them to be their most effective.
 
 ## Employment History
 
-### _Delivery Manager - Reliability Engineering_
+### _Principal Software Engineer - Reliability Engineering_
 __Suncorp Group__ (Melbourne, VIC, Australia)  
-Feb 2019 - 
+Feb 2019 - Jan 2020
 
 The purpose of this role is to design, implement and manage a
 Reliability Engineering function for Suncorp's Digital Technology

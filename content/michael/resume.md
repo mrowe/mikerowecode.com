@@ -30,6 +30,13 @@ conditions that allow them to be their most effective.
 
 ## Employment History
 
+### _Technical Team Lead_
+__Art Processors__ (Melbourne, VIC, Australia)  
+Jan 2020 - 
+
+
+
+
 ### _Principal Software Engineer - Reliability Engineering_
 __Suncorp Group__ (Melbourne, VIC, Australia)  
 Feb 2019 - Jan 2020
